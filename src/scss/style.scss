@@ -1,0 +1,740 @@
+@use 'reset';
+@use 'keyframes';
+@use 'variables' as *;
+@use 'function' as *;
+
+body {
+    background-color: $primary_color_green_default;
+    overflow: hidden;
+}
+
+/* 遮罩 */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: $neutral_black;
+    opacity: 0.7;
+    z-index: 1000;
+}
+
+/* 遊戲說明區 */
+#popup {
+    position: relative;
+}
+
+.instruction {
+    @extend %box-center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    min-width: 500px;
+    height: 50vh;
+    background-color: $primary_color_green_default;
+    border: solid 10px $neutral_white;
+    border-radius: 18px;
+    z-index: 1001;
+
+    .board {
+        @extend %box-center;
+        flex-direction: column;
+
+        .title {
+            font-size: $fontsize_xl;
+            font-weight: $font_bold;
+            margin: 24px 0;
+        }
+
+        .content {
+            font-size: $fontsize_lg;
+            line-height: 1.8;
+
+            span {
+                font-weight: $font_bold;
+                color: $point_color;
+            }
+        }
+    }
+}
+
+/* 骰子按鈕區 */
+.popup-dice-section {
+    position: fixed;
+    bottom: 50px;
+    left: 70px;
+    @extend %box-center;
+    flex-direction: column;
+    z-index: 1000;
+
+    .popup-dialog-box {
+        @extend %box-center;
+        flex-direction: column;
+        margin-bottom: 20px;
+        animation: upanddown 1.5s ease-in-out infinite;
+
+        p {
+            color: $neutral_black;
+            font-size: $fontsize_md;
+            padding: 10px 32px;
+            border-radius: 100px;
+            background-color: $neutral_white;
+        }
+
+        img {
+            width: 20px;
+        }
+    }
+
+    .popup-dice-container {
+        width: 125px;
+        height: 125px;
+        background-color: $primary_color_green_dark;
+        border: solid 3px $neutral_white;
+        border-radius: 100%;
+        @extend %box-center;
+        cursor: pointer;
+
+        .popup-dice {
+            font-size: 60px;
+            color: $neutral_white;
+            outline: none;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+
+            svg {
+                background: none;
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+}
+
+/* 大骰子 */
+.big-dice {
+    position: relative;
+
+    .dice-section {
+        position: fixed;
+        bottom: 55%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        @extend %box-center;
+        flex-direction: column;
+        z-index: 1000;
+        transition: .5s ease;
+
+        .dialog-box {
+            @extend %box-center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            animation: upanddown 1.5s ease-in-out infinite;
+            z-index: 1001;
+
+            p {
+                color: $neutral_black;
+                font-size: $fontsize_xl;
+                padding: 10px 32px;
+                border-radius: 100px;
+                background-color: $neutral_white;
+            }
+
+            img {
+                width: 20px;
+            }
+        }
+
+        .dice-container {
+            width: 375px;
+            height: 375px;
+            background-color: $primary_color_green_dark;
+            border: solid 10px $neutral_white;
+            border-radius: 100%;
+            @extend %box-center;
+            transition: .5s ease;
+
+            .dice {
+                font-size: 180px;
+                color: $neutral_white;
+                outline: none;
+                border: none;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+
+                svg {
+                    background: none;
+                    display: block;
+                    margin: auto;
+                }
+            }
+
+            .dice-shaking {
+                animation: shaking 0.1s infinite;
+            }
+        }
+    }
+}
+
+/* 小骰子 */
+.small-dice {
+    .dice-section {
+        bottom: 50px;
+        left: 70px;
+        transform: none;
+
+        .dialog-box {
+            p {
+                font-size: $fontsize_md;
+            }
+        }
+
+        .dice-container {
+            width: 125px;
+            height: 125px;
+            border: solid 3px $neutral_white;
+
+            .dice {
+                font-size: 60px;
+            }
+        }
+    }
+}
+
+/* 共用區 */
+.btn-game {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $primary_color_green_default;
+    z-index: 666;
+    @extend %box-center;
+    padding: 10px 28px;
+    border: solid 2px $neutral_black;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover {
+        box-shadow: 0 0 7px 5px rgba($primary_color_green_dark, 0.5);
+        transform: translateX(-50%) translateY(-1px);
+        background-color: $primary_color_green_light;
+    }
+
+    p {
+        font-size: 24px;
+        font-weight: $font_bold;
+        color: $neutral_black;
+        margin-right: $interval_l;
+    }
+
+    img {
+        width: 32px;
+        height: 32px;
+        animation: btnMove 1.5s linear infinite;
+    }
+}
+
+.btn-left {
+    transition: 2s ease-in-out;
+    bottom: -120%;
+}
+
+/* 右邊唱片 */
+.right-disc {
+    position: absolute;
+    top: -15%;
+    left: 90%;
+
+    .rotate {
+        position: absolute;
+        top: 10%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+    }
+
+    .disc-big {
+        width: 900px;
+        animation: rotate 15s linear infinite;
+    }
+
+    .circle1 {
+        width: 980px;
+        transform: translate(-50%, -50%) rotate(-130deg);
+        animation: rotate 10s linear infinite;
+        animation-delay: -5s;
+    }
+
+    .circle2 {
+        width: 1075px;
+        transform: translate(-50%, -50%) rotate(-230deg);
+        animation: rotate 14s linear infinite;
+        animation-delay: -8s;
+    }
+
+    .circle3 {
+        width: 1200px;
+        transform: translate(-50%, -50%) rotate(-200deg);
+        animation: rotate 10s linear infinite;
+        animation-delay: -10s;
+    }
+}
+
+.slideout-right {
+    left: 150%;
+    transition: 2s ease-in-out;
+}
+
+/* 左邊唱片 */
+.left-disc {
+    position: absolute;
+    top: 100%;
+    left: 1%;
+
+    .rotate {
+        position: absolute;
+        top: 90%;
+        left: 1%;
+        transform: translate(-50%, -50%);
+    }
+
+    .disc-big {
+        width: 900px;
+        animation: rotate 15s linear infinite;
+    }
+
+    .circle2 {
+        width: 1100px;
+        transform: translate(-50%, -50%) rotate(-230deg);
+        animation: rotate 12s linear infinite;
+        animation-delay: -8s;
+    }
+
+    .circle3 {
+        width: 1230px;
+        transform: translate(-50%, -50%) rotate(-200deg);
+        animation: rotate 10s linear infinite;
+        animation-delay: -10s;
+    }
+}
+
+.slideout-left {
+    left: -120%;
+    transition: 2s ease-in-out;
+}
+
+/* 歌單唱片 */
+.disc {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    transition: 0.4s ease;
+
+    .center-dot {
+        position: absolute;
+        animation: singleDiscRotate 10s linear infinite;
+    }
+
+    .black-circle {
+        width: 100%;
+        height: 100%;
+    }
+
+    .playlist {
+        width: 90%;
+        height: 90%;
+        clip-path: circle(50%);
+    }
+
+    .line {
+        width: 80%;
+        height: 80%;
+    }
+
+    .disc-center {
+        display: block;
+        width: 40%;
+        height: 40%;
+        background-color: $primary_color_green_default;
+        border-radius: 50%;
+    }
+
+    .play-btn {
+        width: 30%;
+        height: 30%;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+    }
+
+}
+
+.active {
+    transform: scale(6);
+    z-index: 1001;
+}
+
+/* 遊戲開始頁面 */
+.gamestart-page {
+    width: 100%;
+    height: 100vh;
+
+    .right-disc {
+        position: absolute;
+        top: 10%;
+        left: 80%;
+
+        .rotate {
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+
+        .disc-big {
+            width: 900px;
+            animation: rotate 15s linear infinite;
+        }
+
+        .circle1 {
+            width: 980px;
+            transform: translate(-50%, -50%) rotate(-130deg);
+            animation: rotate 10s linear infinite;
+            animation-delay: -5s;
+        }
+
+        .circle2 {
+            width: 1075px;
+            transform: translate(-50%, -50%) rotate(-230deg);
+            animation: rotate 14s linear infinite;
+            animation-delay: -8s;
+        }
+
+        .circle3 {
+            width: 1200px;
+            transform: translate(-50%, -50%) rotate(-200deg);
+            animation: rotate 10s linear infinite;
+            animation-delay: -10s;
+        }
+    }
+
+    .slideout-right {
+        left: 150%;
+        transition: 2s ease-in-out;
+    }
+
+    .left-disc {
+        position: absolute;
+        top: 90%;
+        left: 1%;
+
+        .rotate {
+            position: absolute;
+            top: 90%;
+            left: 1%;
+            transform: translate(-50%, -50%);
+        }
+
+        .disc-big {
+            width: 900px;
+            animation: rotate 15s linear infinite;
+        }
+
+        .circle2 {
+            width: 1100px;
+            transform: translate(-50%, -50%) rotate(-230deg);
+            animation: rotate 12s linear infinite;
+            animation-delay: -8s;
+        }
+
+        .circle3 {
+            width: 1230px;
+            transform: translate(-50%, -50%) rotate(-200deg);
+            animation: rotate 10s linear infinite;
+            animation-delay: -10s;
+        }
+    }
+
+    .slideout-left {
+        left: -120%;
+        transition: 2s ease-in-out;
+    }
+}
+
+/* 歌曲清單頁面 */
+/* 背景 */
+.bg-circle {
+    .rotate {
+        position: fixed;
+        z-index: -1;
+    }
+
+    .circle1 {
+        width: 1120px;
+        left: -1300px;
+        transform: translate(-120%, -50%) rotate(-100deg);
+        animation: rotate 10s linear infinite;
+        animation-delay: -5s;
+        transition: 2s ease;
+    }
+
+    .slidein-circle {
+        left: -350px;
+        // transition: 2s ease;
+    }
+
+
+}
+
+/* 歌曲介紹文字 */
+.intro-list {
+    position: fixed;
+    transform: translateX(-240%);
+    margin-top: -25vh;
+    width: 200px;
+    margin-left: 250px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    z-index: 777;
+    transition: 2s ease;
+
+    .song-intro {
+        height: 50vh;
+        align-content: center;
+
+        h4 {
+            font-size: $fontsize_xl;
+            margin-bottom: $interval_s;
+            letter-spacing: 0.05rem;
+        }
+
+        h3 {
+            font-size: 30px;
+            font-weight: $font_bold;
+            margin-bottom: $interval_l;
+        }
+
+        p {
+            font-size: $fontsize_md;
+            line-height: 2;
+        }
+    }
+}
+
+/* 控制滑動 */
+.slidein-intro {
+    transform: translateX(0);
+}
+
+/* 唱片區 */
+.circle-path {
+    position: fixed;
+    right: -600px;
+    top: 50%;
+    transform: translate(120%, -50%);
+    width: 1240px;
+    height: 1240px;
+    border: solid 4px $neutral_white;
+    border-radius: 50%;
+    z-index: 888;
+    transition: 2s ease;
+}
+
+.disc-position {
+    position: fixed;
+    right: -600px;
+    top: 50%;
+    transform: translate(120%, -50%);
+    z-index: 998;
+    transition: 2s ease;
+
+    .disc-list {
+        position: relative;
+        width: 1240px;
+        height: 1240px;
+        transition: 2.5s ease;
+        // border: solid 1px;
+
+        .dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: $neutral_white;
+            display: none;
+        }
+    }
+}
+
+/* 控制滑動 */
+.slidein-disc {
+    transform: translate(0, -50%);
+}
+
+/* 匯出歌單過場畫面 */
+.loading-page {
+    width: 100%;
+    height: 100vh;
+
+    .loading-words {
+        height: 100%;
+        @extend %box-center;
+        flex-direction: column;
+
+        .dialog-box {
+            @extend %box-center;
+            flex-direction: column;
+            margin-bottom: 20px;
+            animation: upanddown 1.5s ease-in-out infinite;
+
+            p {
+                color: $color_dot4;
+                font-size: $fontsize_md;
+                padding: 10px 32px;
+                border-radius: 100px;
+                background-color: $neutral_white;
+            }
+
+            img {
+                width: 20px;
+            }
+        }
+
+        .words {
+            @extend %box-center;
+
+            p {
+                font-size: $fontsize_xxl;
+                margin-right: $interval_l;
+            }
+
+            .little-dot {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                background-color: $neutral_white;
+                border-radius: 50%;
+                margin-right: $interval_l;
+
+                animation: dotLoading 2s linear infinite;
+            }
+
+            .dot-two {
+                background-color: $color_dot2;
+                animation-delay: 0.3s;
+            }
+
+            .dot-three {
+                background-color: $color_dot3;
+                animation-delay: 0.6s;
+            }
+
+            .dot-four {
+                background-color: $color_dot4;
+                animation-delay: 0.9s;
+            }
+        }
+    }
+
+    .right-disc {
+        top: -15%;
+        left: 90%;
+
+        .disc-big {
+            width: 800px;
+        }
+
+        .circle1 {
+            width: 850px;
+        }
+
+        .circle2 {
+            width: 930px;
+        }
+
+        .circle3 {
+            width: 1080px;
+        }
+    }
+
+    .left-disc {
+        top: 95%;
+
+        .disc-big {
+            width: 730px;
+        }
+
+        .circle2 {
+            width: 900px;
+        }
+
+        .circle3 {
+            width: 980px;
+        }
+    }
+}
+
+/* 匯出歌單畫面 */
+.exportsong-page {
+    .disc-list {
+        position: absolute;
+        @extend %box-center;
+        top: 30vh;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .disc {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin: 0 $interval_m;
+            
+            .center-dot {
+                animation: none;
+            }
+        }
+    }
+
+
+    .bg-circle {
+        .circle1 {
+            left: -300px;
+        }
+
+        .right-disc {
+            top: 900px;
+            left: 1400px;
+
+            .rotate {
+                position: absolute;
+                top: 10%;
+                left: 80%;
+                transform: translate(-50%, -50%);
+            }
+
+            .circle1 {
+                width: 700px;
+            }
+
+            .circle2 {
+                width: 1075px;
+            }
+
+            .circle3 {
+                width: 1200px;
+            }
+        }
+    }
+
+}
