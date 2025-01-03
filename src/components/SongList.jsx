@@ -26,7 +26,7 @@ function SongList() {
         }, 1000); // 延遲 1 秒
 
         (async () => {
-            // const data = await axios.get('/json/songlist.json'); 
+            // const data = await axios.get('/json/songlist.json');
             const data = await axios.get('https://huangihsuan.github.io/myPersonalProject/json/songlist.json');
 
             const { songinfo } = data.data.songdata;
@@ -48,7 +48,7 @@ function SongList() {
 
             setTimeout(() => {
                 if (songIn && introListRef.current) {
-                    introListRef.current.style.transform = `translateY(-${50 * newTotal}vh)`;
+                    introListRef.current.style.transform = `translateY(-${(50 * newTotal) - 50}vh)`;
                 }
             }, 500)
 
@@ -77,13 +77,13 @@ function SongList() {
 
         // 延遲執行 setAngle
         setTimeout(() => {
-            setAngle((prevAngle) => prevAngle + (12 * result));
+            if (angle === -264) {
+                setAngle((prevAngle) => (prevAngle + (12 * result)) - 12);
+            } else {
+                setAngle((prevAngle) => (prevAngle + (12 * result)));
+            }
         }, 500); // 延遲 0.5 秒
     };
-
-    // useEffect(() => {
-    //     console.log("songIn 狀態更新:", songIn);
-    // }, [songIn]);
 
     console.log('骰子總格：' + diceTotal);
 

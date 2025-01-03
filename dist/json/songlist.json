@@ -7,7 +7,7 @@
                 "song": "月光下",
                 "maker1": "作詞：杜振熙",
                 "maker2": "作曲：杜振熙、Jabberloop",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-1.jpg"
             },
             {
@@ -16,7 +16,7 @@
                 "song": "心竭",
                 "maker1": "作詞：阿跨面",
                 "maker2": "作曲：阿跨面、阿德、阿任",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-2.jpg"
             },
             {
@@ -25,7 +25,7 @@
                 "song": "Screen Time",
                 "maker1": "作詞：Tablo、Mithra Jin",
                 "maker2": "作曲：Tablo",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-3.jpeg"
             },
             {
@@ -34,7 +34,7 @@
                 "song": "外面有點冷",
                 "maker1": "作詞：楊國雋、杜振熙",
                 "maker2": "作曲：楊國雋、杜振熙",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-4.jpg"
             },
             {
@@ -43,7 +43,7 @@
                 "song": "BASTARD(feat.CHANGMO)",
                 "maker1": "作詞：HAON、CHANGMO",
                 "maker2": "作曲：HAON、CHANGMO、Vangdale、Duss",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-5.jpg"
             },
             {
@@ -52,7 +52,7 @@
                 "song": "W",
                 "maker1": "作詞：HAON",
                 "maker2": "作曲：HAON、Vangdale、junyeol Park",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-6.jpg"
             },
             {
@@ -61,7 +61,7 @@
                 "song": "Day and Night",
                 "maker1": "作詞：Jae Beom Park、Young Ji Lee",
                 "maker2": "作曲：Averzi、Daul、Jae Beom Park、Young Ji Lee",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-7.jpg"
             },
             {
@@ -70,7 +70,7 @@
                 "song": "Adrenaline(Demo)",
                 "maker1": "作詞：Tabber",
                 "maker2": "作曲：Tabber",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-8.jpg"
             },
             {
@@ -79,7 +79,7 @@
                 "song": "HangOver",
                 "maker1": "作詞：Lellamarz",
                 "maker2": "作曲：TOIL、Lellamarz",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-9.jpg"
             },
             {
@@ -88,7 +88,7 @@
                 "song": "U",
                 "maker1": "作詞：OSUN",
                 "maker2": "作曲：OSUN、Reve Nasi",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-10.jpeg"
             },
             {
@@ -97,7 +97,7 @@
                 "song": "Supreme",
                 "maker1": "作詞：REDDY",
                 "maker2": "作曲：REDDY、UGP",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-11.png"
             },
             {
@@ -106,7 +106,7 @@
                 "song": "VROOM",
                 "maker1": "作詞：REDDY",
                 "maker2": "作曲：REDDY",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-12.jpg"
             },
             {
@@ -115,7 +115,7 @@
                 "song": "史詩",
                 "maker1": "作詞：杜振熙",
                 "maker2": "作曲：杜振熙",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-13.jpg"
             },
             {
@@ -124,7 +124,7 @@
                 "song": "基礎憂鬱",
                 "maker1": "作詞：wannasleep、鄭宜農",
                 "maker2": "作曲：wannasleep、鄭宜農",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-14.jpg"
             },
             {
@@ -133,7 +133,7 @@
                 "song": "高枕無憂",
                 "maker1": "作詞：鄭柏育",
                 "maker2": "作曲：鄭柏育",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-15.jpg"
             },
             {
@@ -142,7 +142,7 @@
                 "song": "健康歌",
                 "maker1": "作詞：王之佑、余承恩、李英宏",
                 "maker2": "作曲：王之佑、余承恩、李英宏",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-16.jpeg"
             },
             {
@@ -151,7 +151,7 @@
                 "song": "LOVE ME",
                 "maker1": "作詞：BE'O",
                 "maker2": "作曲：BE'O、TOIL",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-17.jpeg"
             },
             {
@@ -160,7 +160,7 @@
                 "song": "POP IT REMIX",
                 "maker1": "作詞：Blase、Coogie、Hash Swan、禹元材",
                 "maker2": "作曲：Codec",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-18.jpg"
             },
             {
@@ -169,7 +169,7 @@
                 "song": "IndiGO",
                 "maker1": "作詞：JUSTHIS、Kid Milli、NO:EL、양홍원",
                 "maker2": "作曲：JUSTHIS",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-19.jpg"
             },
             {
@@ -178,7 +178,7 @@
                 "song": "Simon Dominic",
                 "maker1": "作詞：Simon Dominic",
                 "maker2": "作曲：GRAY、Simon Dominic",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-20.jpg"
             },
             {
@@ -187,7 +187,7 @@
                 "song": "過程",
                 "maker1": "作詞：杜振熙",
                 "maker2": "作曲：杜振熙、Jabberloop",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-21.jpg"
             },
             {
@@ -196,7 +196,7 @@
                 "song": "熱水澡",
                 "maker1": "作詞：杜振熙",
                 "maker2": "作曲：杜振熙",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-22.jpg"
             },
             {
@@ -205,7 +205,7 @@
                 "song": "We Are",
                 "maker1": "作詞：우원재、LOCO、GRAY",
                 "maker2": "作曲：GRAY",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-23.jpg"
             },
             {
@@ -214,7 +214,7 @@
                 "song": "Diamonds + And Pearls",
                 "maker1": "作詞：DPR LIVE、DPR IAN、peace.",
                 "maker2": "作曲：DPR LIVE、DPR IAN、peace.",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-24.jpg"
             },
             {
@@ -223,7 +223,7 @@
                 "song": "Inside Out",
                 "maker1": "作詞：GEMINI、GroovyRoom",
                 "maker2": "作曲：GEMINI、GroovyRoom",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-25.jpg"
             },
             {
@@ -232,7 +232,7 @@
                 "song": "WONDER",
                 "maker1": "作詞：ASH ISLAND、황세현",
                 "maker2": "作曲：BOYCOLD、Pac Odd、Goldash、ASH ISLAND、황세현",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-26.jpg"
             },
             {
@@ -241,7 +241,7 @@
                 "song": "I don't know a single thing",
                 "maker1": "作詞：Lellamarz、meenoi",
                 "maker2": "作曲：TOIL、Lellamarz、meenoi",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-27.jpg"
             },
             {
@@ -250,7 +250,7 @@
                 "song": "FANXY CHILD",
                 "maker1": "作詞：Zico、DEAN、PENOMECO、Crush",
                 "maker2": "作曲：Stay Tuned、Zico、DEAN、PENOMECO、Crush",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-28.jpeg"
             },
             {
@@ -259,7 +259,7 @@
                 "song": "賴床",
                 "maker1": "作詞：鄭柏育",
                 "maker2": "作曲：鄭柏育",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-15.jpg"
             },
             {
@@ -268,7 +268,7 @@
                 "song": "OTL(OFF THE LEASH)",
                 "maker1": "作詞：Loopy、OSUN、JP",
                 "maker2": "作曲：Loopy、OSUN、JP、Hukky Shibaseki",
-                "song-url": "",
+                "audio": "./music/playlist-10.mp3",
                 "img": "./images/playlist/playlist-30.jpg"
             }
         ]
