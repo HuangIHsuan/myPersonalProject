@@ -1,0 +1,276 @@
+{
+    "songdata": {
+        "songinfo": [
+            {
+                "key": 1,
+                "singer": "蛋堡SoftLipa",
+                "song": "月光下",
+                "maker1": "作詞：杜振熙",
+                "maker2": "作曲：杜振熙、Jabberloop",
+                "song-url": "",
+                "img": "./images/playlist/playlist-1.jpg"
+            },
+            {
+                "key": 2,
+                "singer": "阿跨面Aquaman",
+                "song": "心竭",
+                "maker1": "作詞：阿跨面",
+                "maker2": "作曲：阿跨面、阿德、阿任",
+                "song-url": "",
+                "img": "./images/playlist/playlist-2.jpg"
+            },
+            {
+                "key": 3,
+                "singer": "Epik High(feat.HOSHI)",
+                "song": "Screen Time",
+                "maker1": "作詞：Tablo、Mithra Jin",
+                "maker2": "作曲：Tablo",
+                "song-url": "",
+                "img": "./images/playlist/playlist-3.jpeg"
+            },
+            {
+                "key": 4,
+                "singer": "國蛋GorDon",
+                "song": "外面有點冷",
+                "maker1": "作詞：楊國雋、杜振熙",
+                "maker2": "作曲：楊國雋、杜振熙",
+                "song-url": "",
+                "img": "./images/playlist/playlist-4.jpg"
+            },
+            {
+                "key": 5,
+                "singer": "HAON",
+                "song": "BASTARD(feat.CHANGMO)",
+                "maker1": "作詞：HAON、CHANGMO",
+                "maker2": "作曲：HAON、CHANGMO、Vangdale、Duss",
+                "song-url": "",
+                "img": "./images/playlist/playlist-5.jpg"
+            },
+            {
+                "key": 6,
+                "singer": "HAON",
+                "song": "W",
+                "maker1": "作詞：HAON",
+                "maker2": "作曲：HAON、Vangdale、junyeol Park",
+                "song-url": "",
+                "img": "./images/playlist/playlist-6.jpg"
+            },
+            {
+                "key": 7,
+                "singer": "Lee Young Ji",
+                "song": "Day and Night",
+                "maker1": "作詞：Jae Beom Park、Young Ji Lee",
+                "maker2": "作曲：Averzi、Daul、Jae Beom Park、Young Ji Lee",
+                "song-url": "",
+                "img": "./images/playlist/playlist-7.jpg"
+            },
+            {
+                "key": 8,
+                "singer": "Tabber",
+                "song": "Adrenaline(Demo)",
+                "maker1": "作詞：Tabber",
+                "maker2": "作曲：Tabber",
+                "song-url": "",
+                "img": "./images/playlist/playlist-8.jpg"
+            },
+            {
+                "key": 9,
+                "singer": "Lellamarz",
+                "song": "HangOver",
+                "maker1": "作詞：Lellamarz",
+                "maker2": "作曲：TOIL、Lellamarz",
+                "song-url": "",
+                "img": "./images/playlist/playlist-9.jpg"
+            },
+            {
+                "key": 10,
+                "singer": "OSUN",
+                "song": "U",
+                "maker1": "作詞：OSUN",
+                "maker2": "作曲：OSUN、Reve Nasi",
+                "song-url": "",
+                "img": "./images/playlist/playlist-10.jpeg"
+            },
+            {
+                "key": 11,
+                "singer": "REDDY",
+                "song": "Supreme",
+                "maker1": "作詞：REDDY",
+                "maker2": "作曲：REDDY、UGP",
+                "song-url": "",
+                "img": "./images/playlist/playlist-11.png"
+            },
+            {
+                "key": 12,
+                "singer": "REDDY",
+                "song": "VROOM",
+                "maker1": "作詞：REDDY",
+                "maker2": "作曲：REDDY",
+                "song-url": "",
+                "img": "./images/playlist/playlist-12.jpg"
+            },
+            {
+                "key": 13,
+                "singer": "蛋堡SoftLipa",
+                "song": "史詩",
+                "maker1": "作詞：杜振熙",
+                "maker2": "作曲：杜振熙",
+                "song-url": "",
+                "img": "./images/playlist/playlist-13.jpg"
+            },
+            {
+                "key": 14,
+                "singer": "wannasleep",
+                "song": "基礎憂鬱",
+                "maker1": "作詞：wannasleep、鄭宜農",
+                "maker2": "作曲：wannasleep、鄭宜農",
+                "song-url": "",
+                "img": "./images/playlist/playlist-14.jpg"
+            },
+            {
+                "key": 15,
+                "singer": "禪波ZENBØ",
+                "song": "高枕無憂",
+                "maker1": "作詞：鄭柏育",
+                "maker2": "作曲：鄭柏育",
+                "song-url": "",
+                "img": "./images/playlist/playlist-15.jpg"
+            },
+            {
+                "key": 16,
+                "singer": "夜貓組(feat.李英宏)",
+                "song": "健康歌",
+                "maker1": "作詞：王之佑、余承恩、李英宏",
+                "maker2": "作曲：王之佑、余承恩、李英宏",
+                "song-url": "",
+                "img": "./images/playlist/playlist-16.jpeg"
+            },
+            {
+                "key": 17,
+                "singer": "BE.O",
+                "song": "LOVE ME",
+                "maker1": "作詞：BE'O",
+                "maker2": "作曲：BE'O、TOIL",
+                "song-url": "",
+                "img": "./images/playlist/playlist-17.jpeg"
+            },
+            {
+                "key": 18,
+                "singer": "Blase(feat.Coogie, HashSwan & Woo)",
+                "song": "POP IT REMIX",
+                "maker1": "作詞：Blase、Coogie、Hash Swan、禹元材",
+                "maker2": "作曲：Codec",
+                "song-url": "",
+                "img": "./images/playlist/playlist-18.jpg"
+            },
+            {
+                "key": 19,
+                "singer": "JUSTHIS, Kid Milli, NO:EL, YANGHONGWON",
+                "song": "IndiGO",
+                "maker1": "作詞：JUSTHIS、Kid Milli、NO:EL、양홍원",
+                "maker2": "作曲：JUSTHIS",
+                "song-url": "",
+                "img": "./images/playlist/playlist-19.jpg"
+            },
+            {
+                "key": 20,
+                "singer": "Simon Dominic",
+                "song": "Simon Dominic",
+                "maker1": "作詞：Simon Dominic",
+                "maker2": "作曲：GRAY、Simon Dominic",
+                "song-url": "",
+                "img": "./images/playlist/playlist-20.jpg"
+            },
+            {
+                "key": 21,
+                "singer": "蛋堡SoftLipa",
+                "song": "過程",
+                "maker1": "作詞：杜振熙",
+                "maker2": "作曲：杜振熙、Jabberloop",
+                "song-url": "",
+                "img": "./images/playlist/playlist-21.jpg"
+            },
+            {
+                "key": 22,
+                "singer": "蛋堡SoftLipa",
+                "song": "熱水澡",
+                "maker1": "作詞：杜振熙",
+                "maker2": "作曲：杜振熙",
+                "song-url": "",
+                "img": "./images/playlist/playlist-22.jpg"
+            },
+            {
+                "key": 23,
+                "singer": "Woo(feat.LOCO, GRAY)",
+                "song": "We Are",
+                "maker1": "作詞：우원재、LOCO、GRAY",
+                "maker2": "作曲：GRAY",
+                "song-url": "",
+                "img": "./images/playlist/playlist-23.jpg"
+            },
+            {
+                "key": 24,
+                "singer": "DPR LIVE, DPR IAN, peace.",
+                "song": "Diamonds + And Pearls",
+                "maker1": "作詞：DPR LIVE、DPR IAN、peace.",
+                "maker2": "作曲：DPR LIVE、DPR IAN、peace.",
+                "song-url": "",
+                "img": "./images/playlist/playlist-24.jpg"
+            },
+            {
+                "key": 25,
+                "singer": "GEMINI",
+                "song": "Inside Out",
+                "maker1": "作詞：GEMINI、GroovyRoom",
+                "maker2": "作曲：GEMINI、GroovyRoom",
+                "song-url": "",
+                "img": "./images/playlist/playlist-25.jpg"
+            },
+            {
+                "key": 26,
+                "singer": "ASH ISLAND",
+                "song": "WONDER",
+                "maker1": "作詞：ASH ISLAND、황세현",
+                "maker2": "作曲：BOYCOLD、Pac Odd、Goldash、ASH ISLAND、황세현",
+                "song-url": "",
+                "img": "./images/playlist/playlist-26.jpg"
+            },
+            {
+                "key": 27,
+                "singer": "Lellamarz(feat.meenoi)",
+                "song": "I don't know a single thing",
+                "maker1": "作詞：Lellamarz、meenoi",
+                "maker2": "作曲：TOIL、Lellamarz、meenoi",
+                "song-url": "",
+                "img": "./images/playlist/playlist-27.jpg"
+            },
+            {
+                "key": 28,
+                "singer": "Zico(feat.FANXY CHILD)",
+                "song": "FANXY CHILD",
+                "maker1": "作詞：Zico、DEAN、PENOMECO、Crush",
+                "maker2": "作曲：Stay Tuned、Zico、DEAN、PENOMECO、Crush",
+                "song-url": "",
+                "img": "./images/playlist/playlist-28.jpeg"
+            },
+            {
+                "key": 29,
+                "singer": "禪波ZENBØ",
+                "song": "賴床",
+                "maker1": "作詞：鄭柏育",
+                "maker2": "作曲：鄭柏育",
+                "song-url": "",
+                "img": "./images/playlist/playlist-15.jpg"
+            },
+            {
+                "key": 30,
+                "singer": "Loopy, OSUN, JP",
+                "song": "OTL(OFF THE LEASH)",
+                "maker1": "作詞：Loopy、OSUN、JP",
+                "maker2": "作曲：Loopy、OSUN、JP、Hukky Shibaseki",
+                "song-url": "",
+                "img": "./images/playlist/playlist-30.jpg"
+            }
+        ]
+    }
+}
