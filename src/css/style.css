@@ -461,13 +461,21 @@ body {
   background-color: #A9EA77;
   border-radius: 50%;
 }
-.disc .play-btn {
+.disc button {
   width: 30%;
   height: 30%;
   border: none;
-  background-color: transparent;
+  border-radius: 50%;
   padding: 0;
   cursor: pointer;
+}
+.disc .play-btn {
+  background-size: contain;
+  background-image: url(./images/btn-play.svg);
+}
+.disc .pause-btn {
+  background-size: contain;
+  background-image: url(./images/btn-pause.svg);
 }
 
 .active {
