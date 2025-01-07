@@ -24,7 +24,7 @@ function DiceRollingBig({ handleDiceRollEnd }) {
     }, []);
 
     const roll = () => {
-        console.log('Rolling started. isRolling:', isRolling, 'hasRolled:', hasRolled);
+        // console.log('Rolling started. isRolling:', isRolling, 'hasRolled:', hasRolled);
         if (isRolling) return; // 防止多次點擊
         setIsRolling(true);
 

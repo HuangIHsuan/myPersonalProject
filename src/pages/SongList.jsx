@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import DiceRollingBig from "./DiceRollingBig"
+import DiceRollingBig from "../components/DiceRollingBig"
 import $ from "jquery";
 import axios from 'axios';
-import Disc from "./Disc";
-import ExportLoading from "./ExportLoading";
-import ExportSongList from "./ExportSongList";
+import Disc from "../components/Disc";
+import ExportLoading from "../components/ExportLoading";
+import ExportSongList from "../components/ExportSongList";
+import { Link } from "react-router-dom";
 
 function SongList() {
     const [showSongList, setShowSongList] = useState(true); // 控制 SongList 頁面顯示
@@ -141,6 +142,7 @@ function SongList() {
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
+            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo" onClick={() => { window.location = "/" }} />
             {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>

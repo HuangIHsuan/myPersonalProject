@@ -18,6 +18,20 @@ body {
     z-index: 1000;
 }
 
+.logo {
+    width: 160px;
+    position: fixed;
+    left: $interval_xl;
+    top: $interval_l;
+    transform: translateX(-200%);
+    cursor: pointer;
+}
+
+.logo-in {
+    transform: translateX(0);
+    transition: 2s ease-in-out;
+}
+
 /* 遊戲說明區 */
 #popup {
     position: relative;
@@ -394,6 +408,91 @@ body {
     width: 100%;
     height: 100vh;
 
+    .logo-run {
+        position: relative;
+
+        img {
+            position: absolute;
+        }
+
+        .ani-container1 {
+            position: absolute;
+            left: 164px;
+            top: 60px;
+            width: 125px;
+            height: 60px;
+            overflow: hidden;
+
+            .roll-group {
+                width: 125px;
+                height: 60px;
+                transform: translateY(70px);
+                transition: transform 0.5s ease-out;
+
+                .roll {
+                    width: 125px;
+                    // left: 164px;
+                    // top: 60px;
+                }
+
+                .roll-dice {
+                    position: absolute;
+                    width: 40px;
+                    left: 46px;
+                    top: 15px;
+                    animation: logo-dice-rotate 2s ease-in-out infinite;
+                }
+            }
+
+            .logo-up {
+                transform: translateY(0);
+            }
+        }
+
+        .ani-container2 {
+            position: absolute;
+            width: 120px;
+            height: 60px;
+            left: 310px;
+            top: 60px;
+            overflow: hidden;
+
+            .the {
+                width: 120px;
+                transform: translateY(70px);
+                transition: transform 0.5s 0.3s ease-out;
+            }
+
+            .logo-up {
+                transform: translateY(0);
+            }
+        }
+
+        .ani-container3 {
+            position: absolute;
+            width: 270px;
+            height: 75px;
+            top: 135px;
+            left: 240px;
+            overflow: hidden;
+
+            .rhymes {
+                width: 270px;
+                transform: translateY(80px);
+                transition: transform 0.5s 0.6s ease-out;
+            }
+
+            .logo-up {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .logo-left {
+        transform: translateX(-100%);
+        transition: 2s ease-in-out;
+    }
+
     .right-disc {
         position: absolute;
         top: 10%;
@@ -495,6 +594,7 @@ body {
         font-weight: $font_bold;
     }
 }
+
 .count-in {
     bottom: 60px;
 }
@@ -612,6 +712,10 @@ body {
     width: 100%;
     height: 100vh;
 
+    .logo {
+        transform: translateX(0);
+    }
+
     .loading-words {
         height: 100%;
         @extend %box-center;
@@ -693,6 +797,18 @@ body {
         }
     }
 
+    // .right-disc-in {
+    //     top: -15%;
+    //     left: 90%;
+    //     transition: 1.5s ease-in-out;
+    // }
+
+    // .right-disc-out {
+    //     top: -50%;
+    //     left: 50%;
+    //     transition: 1.5s ease-in-out;
+    // }
+
     .left-disc {
         top: 95%;
 
@@ -712,9 +828,15 @@ body {
 
 /* 匯出歌單畫面 */
 .exportsong-page {
+
+    .logo {
+        transform: translateX(0);
+    }
+
     .count-area {
         bottom: 90%;
     }
+
     // .count-in {
     //     bottom: 120%;
     // }

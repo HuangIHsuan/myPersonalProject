@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import DiscEnd from "./DiscEnd";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 function ExportSongList({ exportList, count }) {
+    const navigate = useNavigate();
     const [currentIndex, setCurrentIndex] = useState(null);
 
     useEffect(() => {
@@ -25,8 +27,14 @@ function ExportSongList({ exportList, count }) {
         );
     };
 
+    const handlePlayAgain = () => {
+        navigate('/songlist');
+    }
+
     return (
         <div className="exportsong-page">
+            <img className='logo' src="./images/logo.svg" alt="logo" onClick={()=>{
+                window.location="/" }}/>
             <p className='count-area'>你的歌單有<span>{count}</span>首歌</p>
             
             <button className="arrow prev-btn" onClick={handleLeftClick}><img src="./images/btn-prev.svg" alt="" /></button>
@@ -40,7 +48,7 @@ function ExportSongList({ exportList, count }) {
                 }
             </div>
 
-            <button className='btn-game'>
+            <button className='btn-game' onClick={handlePlayAgain}>
                 <p>再玩一次</p>
                 <img src="./images/next.svg" alt="" />
             </button>

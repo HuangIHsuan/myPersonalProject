@@ -1,9 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Instructions from "./Instructions";
 import Footer from "./Footer";
 
 function GameStart({ handleDiceRollEnd, exitDisc, setExitDisc }) {
     const [showPopup, setShowPopup] = useState(false);
+    const [logoUp, setLogoUp] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLogoUp(true);
+        }, 600)
+    }, [])
+
     const handleClickPopup = () => {
         setShowPopup(!showPopup);
     }
@@ -29,7 +37,22 @@ function GameStart({ handleDiceRollEnd, exitDisc, setExitDisc }) {
                 <img className="rotate circle2" src="./images/circle-line-2.svg" alt="circle" />
                 <img className="rotate circle3" src="./images/circle-line-3.svg" alt="circle" />
             </div>
-            <Footer/>
+            <div className={`logo-run${exitDisc ? ' logo-left' : ''}`}>
+                <div className="ani-container1">
+                    <div className={`roll-group ${logoUp ? 'logo-up' : ''}`}>
+                        <img className="roll" src="./images/roll.svg" alt="roll" />
+                        <img className="roll-dice" src="./images/roll-dice.svg" alt="dice" />
+                    </div>
+                </div>
+                <div className="ani-container2">
+                    <img className={`the ${logoUp ? 'logo-up' : ''}`} src="./images/the.svg" alt="the" />
+                </div>
+                <div className="ani-container3">
+                    <img className={`rhymes ${logoUp ? 'logo-up' : ''}`} src="./images/Rhymes.svg" alt="rhymes" />
+                </div>
+
+            </div>
+            <Footer />
         </div>
     )
 }

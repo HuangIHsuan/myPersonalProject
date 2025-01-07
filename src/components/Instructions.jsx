@@ -1,7 +1,7 @@
 import { FaDiceOne } from "react-icons/fa"
 import DiceRollingBig from "./DiceRollingBig";
 import { useRef, useState } from "react";
-import SongList from "./SongList";
+import SongList from "../pages/SongList";
 
 function Instructions({handleDiceRollEnd, setExitDisc}) {
 
