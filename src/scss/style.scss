@@ -728,6 +728,7 @@ body {
         border: none;
         background: $neutral_white;
         border-radius: 50%;
+        z-index: 1000;
         cursor: pointer;
 
         img {

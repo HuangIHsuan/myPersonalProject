@@ -32,7 +32,7 @@ function ExportSongList({ exportList, count }) {
             <button className="arrow prev-btn" onClick={handleLeftClick}><img src="./images/btn-prev.svg" alt="" /></button>
             <button className="arrow next-btn" onClick={handleRightClick}><img src="./images/btn-next.svg" alt="" /></button>
 
-            <div className="disc-list" style={{transform: `translateX(-${currentIndex * 20}vw)`}}>
+            <div className="disc-list" style={{transform: `translateX(-${currentIndex * 20 }%)`}}>
                 {
                     exportList.map((song, index) => (
                         <DiscEnd key={song.key} song={song} index={index} currentIndex={currentIndex} />

@@ -51,6 +51,8 @@ function SongList() {
             if (newTotal > 30) {
                 alert("已經超過30格囉！");
                 setSongIn(false);
+                introListRef.current.style.transform = 'translateX(-240%)';
+                introListRef.current.style.transition = '2s ease';
 
                 // 切換到其他頁面的邏輯
                 setTimeout(() => {
@@ -92,7 +94,7 @@ function SongList() {
                         return prevExportList;
                     });
                 }
-            }, 2000); // 延遲 2 秒，與旋轉動畫同步
+            }, 1500); // 延遲 1.5 秒，與旋轉動畫配合
 
             return newTotal; // 更新 total
         });
@@ -136,11 +138,10 @@ function SongList() {
         }
     }, [songList]);
 
-
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
-            {showSongList && !showExporting &&
+            {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
                     <div className="bg-circle">
