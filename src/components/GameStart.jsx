@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Instructions from "./Instructions";
+import Footer from "./Footer";
 
 function GameStart({ handleDiceRollEnd, exitDisc, setExitDisc }) {
     const [showPopup, setShowPopup] = useState(false);
@@ -28,6 +29,7 @@ function GameStart({ handleDiceRollEnd, exitDisc, setExitDisc }) {
                 <img className="rotate circle2" src="./images/circle-line-2.svg" alt="circle" />
                 <img className="rotate circle3" src="./images/circle-line-3.svg" alt="circle" />
             </div>
+            <Footer/>
         </div>
     )
 }

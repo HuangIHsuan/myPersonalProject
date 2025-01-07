@@ -33,6 +33,9 @@ function Disc({ coord, index, song, activeDiscIndex }) {
         }
     }, [activeDiscIndex, index]); // 依賴 activeDiscIndex 和 index 的變化
 
+    console.log('index', index);
+    console.log('activeDiscIndex',activeDiscIndex);
+
     return (
         <div className={`disc ${(index + 1) === activeDiscIndex ? 'active' : ''}`}
             style={{

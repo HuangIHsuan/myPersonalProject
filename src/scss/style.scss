@@ -26,7 +26,7 @@ body {
 .instruction {
     @extend %box-center;
     position: fixed;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
@@ -62,7 +62,7 @@ body {
 /* 骰子按鈕區 */
 .popup-dice-section {
     position: fixed;
-    bottom: 50px;
+    bottom: 70px;
     left: 70px;
     @extend %box-center;
     flex-direction: column;
@@ -183,7 +183,7 @@ body {
 /* 小骰子 */
 .small-dice {
     .dice-section {
-        bottom: 50px;
+        bottom: 70px;
         left: 70px;
         transform: none;
 
@@ -434,7 +434,7 @@ body {
     }
 
     .slideout-right {
-        left: 150%;
+        left: 240%;
         transition: 2s ease-in-out;
     }
 
@@ -477,6 +477,28 @@ body {
 }
 
 /* 歌曲清單頁面 */
+.count-area {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $primary_color_green_light;
+    z-index: 666;
+    @extend %box-center;
+    padding: 10px 28px;
+    border: solid 2px $neutral_black;
+    border-radius: 100px;
+    transition: 1s ease-in-out;
+
+    span {
+        padding: 0 4px;
+        font-weight: $font_bold;
+    }
+}
+.count-in {
+    bottom: 60px;
+}
+
 /* 背景 */
 .bg-circle {
     .rotate {
@@ -497,8 +519,6 @@ body {
         left: -350px;
         // transition: 2s ease;
     }
-
-
 }
 
 /* 歌曲介紹文字 */
@@ -692,22 +712,91 @@ body {
 
 /* 匯出歌單畫面 */
 .exportsong-page {
+    .count-area {
+        bottom: 90%;
+    }
+    // .count-in {
+    //     bottom: 120%;
+    // }
+
+    .arrow {
+        position: absolute;
+        top: 34vh;
+        z-index: 999;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: $neutral_white;
+        border-radius: 50%;
+        cursor: pointer;
+
+        img {
+            text-align: center;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .prev-btn {
+        left: 30px;
+    }
+
+    .next-btn {
+        right: 30px;
+    }
+
     .disc-list {
         position: absolute;
         @extend %box-center;
-        top: 30vh;
+        top: 25vh;
         left: 50%;
-        transform: translateX(-50%);
+        transition: 0.5s ease;
+        // transform: translateX(-50%);
 
-        .disc {
-            position: relative;
-            width: 170px;
-            height: 170px;
+        .whole-disc {
+            flex: 0 0 20vw;
+            @extend %box-center;
+            flex-direction: column;
             margin: 0 $interval_m;
+            opacity: 0.7;
+            transform: scale(1);
+            transition: 0.3s ease;
 
-            .center-dot {
-                animation: none;
+            .disc {
+                position: relative;
+                width: 170px;
+                height: 170px;
+                margin: $interval_xl 0;
+
+                .center-dot {
+                    animation: none;
+                }
+
+                button {
+                    border: 3px solid $primary_color_green_default;
+                }
             }
+
+            .song-info-simple {
+                @extend %box-center;
+                flex-direction: column;
+
+                p {
+                    font-size: $fontsize_sm;
+                    margin-bottom: $interval_s;
+                }
+
+                h3 {
+                    font-size: $fontsize_lg;
+                    font-weight: $font_bold;
+                }
+            }
+        }
+
+        .active {
+            opacity: 1;
+            transform: scale(2);
+            margin: 0 96px;
         }
     }
 
@@ -741,5 +830,24 @@ body {
             }
         }
     }
+}
 
+/* footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: $neutral_black;
+    z-index: 999;
+    padding: 0 $interval_xl;
+
+    p {
+        color: $primary_color_green_light;
+        font-size: $fontsize_sm;
+        text-align: center;
+        line-height: 5vh;
+    }
 }

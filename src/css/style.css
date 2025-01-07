@@ -141,7 +141,7 @@ a {
     transform: translateY(3px);
   }
 }
-.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .disc-list {
+.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .disc-list, .exportsong-page .disc-list .whole-disc, .exportsong-page .disc-list .whole-disc .song-info-simple {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,7 +169,7 @@ body {
 
 .instruction {
   position: fixed;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60%;
@@ -200,7 +200,7 @@ body {
 /* 骰子按鈕區 */
 .popup-dice-section {
   position: fixed;
-  bottom: 50px;
+  bottom: 70px;
   left: 70px;
   flex-direction: column;
   z-index: 1000;
@@ -300,7 +300,7 @@ body {
 
 /* 小骰子 */
 .small-dice .dice-section {
-  bottom: 50px;
+  bottom: 70px;
   left: 70px;
   transform: none;
 }
@@ -517,7 +517,7 @@ body {
   animation-delay: -10s;
 }
 .gamestart-page .slideout-right {
-  left: 150%;
+  left: 240%;
   transition: 2s ease-in-out;
 }
 .gamestart-page .left-disc {
@@ -553,6 +553,27 @@ body {
 }
 
 /* 歌曲清單頁面 */
+.count-area {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #D0FBAF;
+  z-index: 666;
+  padding: 10px 28px;
+  border: solid 2px #000;
+  border-radius: 100px;
+  transition: 1s ease-in-out;
+}
+.count-area span {
+  padding: 0 4px;
+  font-weight: 700;
+}
+
+.count-in {
+  bottom: 60px;
+}
+
 /* 背景 */
 .bg-circle .rotate {
   position: fixed;
@@ -728,20 +749,72 @@ body {
 }
 
 /* 匯出歌單畫面 */
+.exportsong-page .count-area {
+  bottom: 90%;
+}
+.exportsong-page .arrow {
+  position: absolute;
+  top: 34vh;
+  z-index: 999;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exportsong-page .arrow img {
+  text-align: center;
+  width: 24px;
+  height: 24px;
+}
+.exportsong-page .prev-btn {
+  left: 30px;
+}
+.exportsong-page .next-btn {
+  right: 30px;
+}
 .exportsong-page .disc-list {
   position: absolute;
-  top: 30vh;
+  top: 25vh;
   left: 50%;
-  transform: translateX(-50%);
+  transition: 0.5s ease;
 }
-.exportsong-page .disc-list .disc {
+.exportsong-page .disc-list .whole-disc {
+  flex: 0 0 20vw;
+  flex-direction: column;
+  margin: 0 12px;
+  opacity: 0.7;
+  transform: scale(1);
+  transition: 0.3s ease;
+}
+.exportsong-page .disc-list .whole-disc .disc {
   position: relative;
   width: 170px;
   height: 170px;
-  margin: 0 12px;
+  margin: 24px 0;
 }
-.exportsong-page .disc-list .disc .center-dot {
+.exportsong-page .disc-list .whole-disc .disc .center-dot {
   animation: none;
+}
+.exportsong-page .disc-list .whole-disc .disc button {
+  border: 3px solid #A9EA77;
+}
+.exportsong-page .disc-list .whole-disc .song-info-simple {
+  flex-direction: column;
+}
+.exportsong-page .disc-list .whole-disc .song-info-simple p {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.exportsong-page .disc-list .whole-disc .song-info-simple h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.exportsong-page .disc-list .active {
+  opacity: 1;
+  transform: scale(2);
+  margin: 0 96px;
 }
 .exportsong-page .bg-circle .circle1 {
   left: -300px;
@@ -764,4 +837,23 @@ body {
 }
 .exportsong-page .bg-circle .right-disc .circle3 {
   width: 1200px;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+  z-index: 999;
+  padding: 0 24px;
+}
+footer p {
+  color: #D0FBAF;
+  font-size: 12px;
+  text-align: center;
+  line-height: 5vh;
 }/*# sourceMappingURL=style.css.map */

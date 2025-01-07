@@ -4,6 +4,7 @@ import './css/style.min.css'
 import SongList from "./components/SongList";
 import ExportLoading from "./components/ExportLoading";
 import ExportSongList from "./components/ExportSongList";
+import Footer from "./components/Footer";
 
 function App() {
   const [showGameStart, setShowGameStart] = useState(true); // 控制 GameStart 頁面顯示
@@ -18,15 +19,6 @@ function App() {
     setShowSongList(true);
   }
 
-  // const handleLoadingPage = () => {
-  //   setShowSongList(false);
-  //   setShowLoading(true);
-  // }
-
-  const handleExportList = () => {
-    setShowExportList(true);
-  }
-
   return (
     <>
       {showGameStart &&
@@ -35,8 +27,6 @@ function App() {
         />}
       {showSongList &&
         <SongList handleLoadingPage={handleLoadingPage} handleDiceRollEnd={handleDiceRollEnd}/>}
-      {/* {showLoading && <ExportLoading />} */}
-      {/* <ExportSongList /> */}
     </>
   )
 }

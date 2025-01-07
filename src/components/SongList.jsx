@@ -14,10 +14,13 @@ function SongList() {
     const [songIn, setSongIn] = useState(false); // 開頭滑進來
     const [diceResult, setDiceResult] = useState(0); // 保存骰子結果
     const [diceTotal, setDiceTotal] = useState(0); // 骰子結果相加
+    const [isFirstAngleUpdate, setIsFirstAngleUpdate] = useState(true); // 紀錄是否是第一次執行
     const [angle, setAngle] = useState(-264); // 記錄旋轉角度
     const [songList, setSongList] = useState([]); // 歌曲json清單
     const [activeDiscIndex, setActiveDiscIndex] = useState(null); // 記錄需要放大的 disc 索引值
     const introListRef = useRef(0);
+    const [count, setCount] = useState(0); // 計算歌單歌曲數目
+    const [exportList, setExportList] = useState([]);
 
     useEffect(() => {
         // 延遲執行 setSongIn
@@ -44,7 +47,26 @@ function SongList() {
         // 使用函數式更新計算下一個索引
         setDiceTotal((prevTotal) => {
             const newTotal = prevTotal + result;
-            const nextDiscIndex = newTotal % 30; // 確保索引值不超過 30
+            // 如果總和超過 30，停止更新 count、旋轉和 activeDiscIndex
+            if (newTotal > 30) {
+                alert("已經超過30格囉！");
+                setSongIn(false);
+
+                // 切換到其他頁面的邏輯
+                setTimeout(() => {
+                    setShowSongList(false);
+                    setShowLoading(true);
+                }, 2000);
+
+                setTimeout(() => {
+                    setShowLoading(false);
+                    setShowExporting(true);
+                }, 4000);
+
+                return prevTotal; // 返回舊的 total，不更新
+            }
+
+            const nextDiscIndex = newTotal % 31; // 確保索引值不超過 31
 
             setTimeout(() => {
                 if (songIn && introListRef.current) {
@@ -55,30 +77,31 @@ function SongList() {
             // 延遲更新 activeDiscIndex，與旋轉動畫同步
             setTimeout(() => {
                 setActiveDiscIndex(nextDiscIndex);
+
+                // 新增被選中的 Disc 到 exportList
+                if (songList[nextDiscIndex]) {
+                    setExportList((prevExportList) => {
+                        // 避免重複添加
+                        const isDuplicate = prevExportList.some(
+                            (song) => song.key === songList[nextDiscIndex - 1].key
+                        );
+                        if (!isDuplicate) {
+                            setCount((prevCount) => prevCount + 1); // 僅在未超過 30 且不重複時更新 count
+                            return [...prevExportList, songList[nextDiscIndex - 1]];
+                        }
+                        return prevExportList;
+                    });
+                }
             }, 2000); // 延遲 2 秒，與旋轉動畫同步
 
-            if (newTotal > 29) {
-                alert('已經超過30格囉！');
-                setSongIn(false);
-
-                setTimeout(() => {
-                    setShowSongList(false);
-                    setShowLoading(true);
-                }, 2000);
-
-                setTimeout(() => {
-                    setShowLoading(false);
-                    setShowExporting(true);
-                }, 4000)
-            }
-
-            return newTotal;
+            return newTotal; // 更新 total
         });
 
         // 延遲執行 setAngle
         setTimeout(() => {
-            if (angle === -264) {
+            if (isFirstAngleUpdate) {
                 setAngle((prevAngle) => (prevAngle + (12 * result)) - 12);
+                setIsFirstAngleUpdate(false);
             } else {
                 setAngle((prevAngle) => (prevAngle + (12 * result)));
             }
@@ -113,11 +136,13 @@ function SongList() {
         }
     }, [songList]);
 
+
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
-            {showSongList &&
-                <div className="songlistpage">
+            {showSongList && !showExporting &&
+                <div className="songlist-page">
+                    <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
                     <div className="bg-circle">
                         <img className={`rotate circle1${songIn ? ' slidein-circle' : ''}`} src="./images/circle-line-1.svg" alt="circle" />
                     </div>
@@ -129,18 +154,6 @@ function SongList() {
                             <p>作詞：Loopy、OSUN、JP</p>
                             <p>作曲：Loopy、OSUN、JP、Hukky Shibaseki</p>
                         </div>
-                        {
-                            songList.map((song) => {
-                                return (
-                                    <div key={song.key} className="song-intro">
-                                        <h4>{song.singer}</h4>
-                                        <h3>{song.key}. {song.song}</h3>
-                                        <p>{song.maker1}</p>
-                                        <p>{song.maker2}</p>
-                                    </div>
-                                )
-                            })
-                        }
                         {
                             songList.map((song) => {
                                 return (
@@ -181,7 +194,7 @@ function SongList() {
             }
 
             {showLoading && <ExportLoading setShowLoading={setShowLoading} />}
-            {showExporting && <ExportSongList />}
+            {showExporting && <ExportSongList exportList={exportList} count={count} />}
         </>
     )
 }

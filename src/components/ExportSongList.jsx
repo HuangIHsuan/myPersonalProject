@@ -1,27 +1,41 @@
 import { useEffect, useState } from "react"
 import DiscEnd from "./DiscEnd";
-import axios from 'axios';
+import Footer from "./Footer";
 
-function ExportSongList() {
-    const [songList, setSongList] = useState([]); // 歌曲json清單
+function ExportSongList({ exportList, count }) {
+    const [currentIndex, setCurrentIndex] = useState(null);
 
     useEffect(() => {
-        (async () => {
-            // const data = await axios.get('/json/songlist.json'); 
-            const data = await axios.get('https://huangihsuan.github.io/myPersonalProject/json/songlist.json');
-
-            const { songinfo } = data.data.songdata;
-            setSongList(songinfo);
-        })()
+        // 設置初始索引為中間索引，或使用 defaultIndex（確保在範圍內）
+        const middleIndex = Math.floor(exportList.length / 2);
+        setCurrentIndex(middleIndex);
     }, [])
+
+    // 左箭頭點擊事件
+    const handleLeftClick = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? exportList.length - 1 : prevIndex - 1
+        );
+    };
+
+    // 右箭頭點擊事件
+    const handleRightClick = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === exportList.length - 1 ? 0 : prevIndex + 1
+        );
+    };
 
     return (
         <div className="exportsong-page">
+            <p className='count-area'>你的歌單有<span>{count}</span>首歌</p>
             
-            <div className="disc-list">
+            <button className="arrow prev-btn" onClick={handleLeftClick}><img src="./images/btn-prev.svg" alt="" /></button>
+            <button className="arrow next-btn" onClick={handleRightClick}><img src="./images/btn-next.svg" alt="" /></button>
+
+            <div className="disc-list" style={{transform: `translateX(-${currentIndex * 20}vw)`}}>
                 {
-                    songList.slice(0,10).map((song) => (
-                        <DiscEnd key={song.key} song={song} />
+                    exportList.map((song, index) => (
+                        <DiscEnd key={song.key} song={song} index={index} currentIndex={currentIndex} />
                     ))
                 }
             </div>
@@ -39,6 +53,7 @@ function ExportSongList() {
                 </div>
             </div>
 
+            <Footer />
 
         </div>
     )
