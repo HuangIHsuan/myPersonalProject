@@ -79,7 +79,7 @@ function SongList() {
                 setActiveDiscIndex(nextDiscIndex);
 
                 // 新增被選中的 Disc 到 exportList
-                if (songList[nextDiscIndex]) {
+                if (songList[nextDiscIndex - 1]) {
                     setExportList((prevExportList) => {
                         // 避免重複添加
                         const isDuplicate = prevExportList.some(
