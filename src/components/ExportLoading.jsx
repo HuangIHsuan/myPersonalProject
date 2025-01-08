@@ -2,39 +2,18 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 function ExportLoading({ setShowLoading }) {
-    // const [inDisc, setInDisc] = useState(false);
-    // const [outDisc, setOutDisc] = useState(false);
+    const [outDisc, setOutDisc] = useState(false);
 
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         console.log('Setting inDisc to true');
-    //         setShowLoading(false);
-    //         setInDisc(true);
-    //     }, 1500)
-    //     return () => clearTimeout(timer);
-    // }, [setShowLoading])
-
-    // // 監聽 inDisc 的變化
-    // useEffect(() => {
-    //     console.log('inDisc changed to true, setting outDisc to true after 1.5s');
-    //     if (inDisc) {
-    //         // 1.5 秒後設置 outDisc 為 true
-    //         const timer = setTimeout(() => {
-    //             setOutDisc(true);
-    //         }, 1500);
-
-    //         return () => clearTimeout(timer);
-    //     }
-    // }, [inDisc]);
-
-    // console.log('inDisc', inDisc);
-    // console.log('outDisc', outDisc);
+    useEffect(() => {
+        setTimeout(() => {
+            setOutDisc(true);
+        }, 500)
+    }, [setShowLoading])
 
     return (
         <>
             <div className="loading-page">
-                <img className='logo' src="./images/logo.svg" alt="logo" onClick={()=>{
-                window.location="/" }}/>
+                <img className='logo' src="./images/logo.svg" alt="logo" />
                 <div className='loading-words'>
                     <div className="dialog-box">
                         <p>遊戲結束！</p>
@@ -49,14 +28,14 @@ function ExportLoading({ setShowLoading }) {
                     </div>
                 </div>
 
-                {/* <div className={`right-disc ${inDisc ? 'right-disc-in' : ''} ${outDisc ? 'right-disc-out' : ''}`}> */}
-                <div className='right-disc'>
+                <div className={`right-disc ${outDisc ? 'right-disc-out' : ''}`}>
+                    {/* <div className='right-disc'> */}
                     <img className="rotate disc-big" src="./images/disc.svg" alt="disc" />
                     <img className="rotate circle1" src="./images/circle-line-1.svg" alt="circle" />
                     <img className="rotate circle2" src="./images/circle-line-2.svg" alt="circle" />
                     <img className="rotate circle3" src="./images/circle-line-3.svg" alt="circle" />
                 </div>
-                <div className='left-disc'>
+                <div className={`left-disc ${outDisc ? 'left-disc-out' : ''}`}>
                     <img className="rotate disc-big" src="./images/disc.svg" alt="disc" />
                     <img className="rotate circle2" src="./images/circle-line-2.svg" alt="circle" />
                     <img className="rotate circle3" src="./images/circle-line-3.svg" alt="circle" />

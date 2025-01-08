@@ -23,8 +23,9 @@ body {
     position: fixed;
     left: $interval_xl;
     top: $interval_l;
+    z-index: 1000;
     transform: translateX(-200%);
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .logo-in {
@@ -43,9 +44,8 @@ body {
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
     min-width: 500px;
-    height: 50vh;
+    padding: 24px 60px;
     background-color: $primary_color_green_default;
     border: solid 10px $neutral_white;
     border-radius: 18px;
@@ -578,7 +578,7 @@ body {
 /* 歌曲清單頁面 */
 .count-area {
     position: absolute;
-    bottom: -10%;
+    bottom: 110%;
     left: 50%;
     transform: translateX(-50%);
     background-color: $primary_color_green_light;
@@ -588,6 +588,7 @@ body {
     border: solid 2px $neutral_black;
     border-radius: 100px;
     transition: 1s ease-in-out;
+    z-index: 1000;
 
     span {
         padding: 0 4px;
@@ -596,7 +597,7 @@ body {
 }
 
 .count-in {
-    bottom: 60px;
+    bottom: 90%;
 }
 
 /* 背景 */
@@ -621,13 +622,35 @@ body {
     }
 }
 
+.songlist-page {
+    .circle1 {
+        z-index: 889;
+    }
+}
+
+/* 介紹區遮罩 */
+.linear-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background: linear-gradient(to bottom, rgba($primary_color_green_default, 0.8) 20%, rgba($primary_color_green_default, 0) 50%, rgba($primary_color_green_default, 0.8) 80%);
+    opacity: 0;
+    z-index: 888;
+}
+
+.overlay-appear {
+    opacity: 1;
+    transition: 1s ease;
+}
+
 /* 歌曲介紹文字 */
 .intro-list {
     position: fixed;
     transform: translateX(-240%);
     margin-top: -25vh;
     width: 200px;
-    margin-left: 250px;
+    margin-left: 20%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -666,7 +689,7 @@ body {
 /* 唱片區 */
 .circle-path {
     position: fixed;
-    right: -600px;
+    right: -700px;
     top: 50%;
     transform: translate(120%, -50%);
     width: 1240px;
@@ -679,7 +702,7 @@ body {
 
 .disc-position {
     position: fixed;
-    right: -600px;
+    right: -700px;
     top: 50%;
     transform: translate(120%, -50%);
     z-index: 998;
@@ -797,17 +820,10 @@ body {
         }
     }
 
-    // .right-disc-in {
-    //     top: -15%;
-    //     left: 90%;
-    //     transition: 1.5s ease-in-out;
-    // }
-
-    // .right-disc-out {
-    //     top: -50%;
-    //     left: 50%;
-    //     transition: 1.5s ease-in-out;
-    // }
+    .right-disc-out {
+        left: 160%;
+        transition: 3.5s ease;
+    }
 
     .left-disc {
         top: 95%;
@@ -824,13 +840,28 @@ body {
             width: 980px;
         }
     }
+
+    .left-disc-out {
+        left: -70%;
+        transition: 3.5s ease;
+    }
 }
 
 /* 匯出歌單畫面 */
 .exportsong-page {
 
+    .btn-game {
+        bottom: -100%;
+    }
+
+    .btn-in {
+        bottom: 60px;
+        transition: 2s ease-in-out;
+    }
+
     .logo {
         transform: translateX(0);
+        cursor: pointer;
     }
 
     .count-area {
@@ -843,7 +874,7 @@ body {
 
     .arrow {
         position: absolute;
-        top: 34vh;
+        top: 35vh;
         z-index: 999;
         width: 40px;
         height: 40px;
@@ -877,7 +908,7 @@ body {
         // transform: translateX(-50%);
 
         .whole-disc {
-            flex: 0 0 20vw;
+            flex: 0 0 10%;
             @extend %box-center;
             flex-direction: column;
             margin: 0 $interval_m;
@@ -903,6 +934,7 @@ body {
             .song-info-simple {
                 @extend %box-center;
                 flex-direction: column;
+                text-align: center;
 
                 p {
                     font-size: $fontsize_sm;
@@ -918,20 +950,24 @@ body {
 
         .active {
             opacity: 1;
-            transform: scale(2);
-            margin: 0 96px;
+            transform: scale(1.5);
+            margin: 0 60px;
         }
     }
 
-
     .bg-circle {
         .circle1 {
+            left: -800px;
+        }
+
+        .left-in {
             left: -300px;
+            transition: 2s ease;
         }
 
         .right-disc {
             top: 900px;
-            left: 1400px;
+            left: 2000px;
 
             .rotate {
                 position: absolute;
@@ -951,6 +987,11 @@ body {
             .circle3 {
                 width: 1200px;
             }
+        }
+
+        .right-in {
+            left: 1400px;
+            transition: 2s ease;
         }
     }
 }

@@ -39,8 +39,8 @@
             },
             {
                 "key": 5,
-                "singer": "HAON",
-                "song": "BASTARD(feat.CHANGMO)",
+                "singer": "HAON(feat.CHANGMO)",
+                "song": "BASTARD",
                 "maker1": "作詞：HAON、CHANGMO",
                 "maker2": "作曲：HAON、CHANGMO、Vangdale、Duss",
                 "audio": "./music/playlist-5.mp3",
@@ -57,7 +57,7 @@
             },
             {
                 "key": 7,
-                "singer": "Lee Young Ji",
+                "singer": "Lee Young Ji(feat.JPark)",
                 "song": "Day and Night",
                 "maker1": "作詞：Jae Beom Park、Young Ji Lee",
                 "maker2": "作曲：Averzi、Daul、Jae Beom Park、Young Ji Lee",
@@ -158,7 +158,7 @@
                 "key": 18,
                 "singer": "Blase(feat.Coogie, HashSwan & Woo)",
                 "song": "POP IT REMIX",
-                "maker1": "作詞：Blase、Coogie、Hash Swan、禹元材",
+                "maker1": "作詞：Blase、Coogie、Hash Swan、우원재",
                 "maker2": "作曲：Codec",
                 "audio": "./music/playlist-18.mp3",
                 "img": "./images/playlist/playlist-18.jpg"

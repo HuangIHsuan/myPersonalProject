@@ -176,8 +176,8 @@ body {
   position: fixed;
   left: 24px;
   top: 16px;
+  z-index: 1000;
   transform: translateX(-200%);
-  cursor: pointer;
 }
 
 .logo-in {
@@ -195,9 +195,8 @@ body {
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
   min-width: 500px;
-  height: 50vh;
+  padding: 24px 60px;
   background-color: #A9EA77;
   border: solid 10px #fff;
   border-radius: 18px;
@@ -647,7 +646,7 @@ body {
 /* 歌曲清單頁面 */
 .count-area {
   position: absolute;
-  bottom: -10%;
+  bottom: 110%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #D0FBAF;
@@ -656,6 +655,7 @@ body {
   border: solid 2px #000;
   border-radius: 100px;
   transition: 1s ease-in-out;
+  z-index: 1000;
 }
 .count-area span {
   padding: 0 4px;
@@ -663,7 +663,7 @@ body {
 }
 
 .count-in {
-  bottom: 60px;
+  bottom: 90%;
 }
 
 /* 背景 */
@@ -683,13 +683,33 @@ body {
   left: -350px;
 }
 
+.songlist-page .circle1 {
+  z-index: 889;
+}
+
+/* 介紹區遮罩 */
+.linear-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: block;
+  background: linear-gradient(to bottom, rgba(169, 234, 119, 0.8) 20%, rgba(169, 234, 119, 0) 50%, rgba(169, 234, 119, 0.8) 80%);
+  opacity: 0;
+  z-index: 888;
+}
+
+.overlay-appear {
+  opacity: 1;
+  transition: 1s ease;
+}
+
 /* 歌曲介紹文字 */
 .intro-list {
   position: fixed;
   transform: translateX(-240%);
   margin-top: -25vh;
   width: 200px;
-  margin-left: 250px;
+  margin-left: 20%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -724,7 +744,7 @@ body {
 /* 唱片區 */
 .circle-path {
   position: fixed;
-  right: -600px;
+  right: -700px;
   top: 50%;
   transform: translate(120%, -50%);
   width: 1240px;
@@ -737,7 +757,7 @@ body {
 
 .disc-position {
   position: fixed;
-  right: -600px;
+  right: -700px;
   top: 50%;
   transform: translate(120%, -50%);
   z-index: 998;
@@ -830,6 +850,10 @@ body {
 .loading-page .right-disc .circle3 {
   width: 1080px;
 }
+.loading-page .right-disc-out {
+  left: 160%;
+  transition: 3.5s ease;
+}
 .loading-page .left-disc {
   top: 95%;
 }
@@ -842,17 +866,29 @@ body {
 .loading-page .left-disc .circle3 {
   width: 980px;
 }
+.loading-page .left-disc-out {
+  left: -70%;
+  transition: 3.5s ease;
+}
 
 /* 匯出歌單畫面 */
+.exportsong-page .btn-game {
+  bottom: -100%;
+}
+.exportsong-page .btn-in {
+  bottom: 60px;
+  transition: 2s ease-in-out;
+}
 .exportsong-page .logo {
   transform: translateX(0);
+  cursor: pointer;
 }
 .exportsong-page .count-area {
   bottom: 90%;
 }
 .exportsong-page .arrow {
   position: absolute;
-  top: 34vh;
+  top: 35vh;
   z-index: 999;
   width: 40px;
   height: 40px;
@@ -880,7 +916,7 @@ body {
   transition: 0.5s ease;
 }
 .exportsong-page .disc-list .whole-disc {
-  flex: 0 0 20vw;
+  flex: 0 0 10%;
   flex-direction: column;
   margin: 0 12px;
   opacity: 0.7;
@@ -901,6 +937,7 @@ body {
 }
 .exportsong-page .disc-list .whole-disc .song-info-simple {
   flex-direction: column;
+  text-align: center;
 }
 .exportsong-page .disc-list .whole-disc .song-info-simple p {
   font-size: 12px;
@@ -912,15 +949,19 @@ body {
 }
 .exportsong-page .disc-list .active {
   opacity: 1;
-  transform: scale(2);
-  margin: 0 96px;
+  transform: scale(1.5);
+  margin: 0 60px;
 }
 .exportsong-page .bg-circle .circle1 {
+  left: -800px;
+}
+.exportsong-page .bg-circle .left-in {
   left: -300px;
+  transition: 2s ease;
 }
 .exportsong-page .bg-circle .right-disc {
   top: 900px;
-  left: 1400px;
+  left: 2000px;
 }
 .exportsong-page .bg-circle .right-disc .rotate {
   position: absolute;
@@ -936,6 +977,10 @@ body {
 }
 .exportsong-page .bg-circle .right-disc .circle3 {
   width: 1200px;
+}
+.exportsong-page .bg-circle .right-in {
+  left: 1400px;
+  transition: 2s ease;
 }
 
 /* footer */

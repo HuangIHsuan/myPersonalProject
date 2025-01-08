@@ -142,7 +142,7 @@ function SongList() {
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
-            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo" onClick={() => { window.location = "/" }} />
+            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo"/>
             {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
@@ -150,6 +150,7 @@ function SongList() {
                         <img className={`rotate circle1${songIn ? ' slidein-circle' : ''}`} src="./images/circle-line-1.svg" alt="circle" />
                     </div>
 
+                    <div className={`linear-overlay${songIn ? ' overlay-appear' : ''}`}></div>
                     <div className={`intro-list${songIn ? ' slidein-intro' : ''}`} ref={introListRef}>
                         <div className="song-intro">
                             <h4>Loopy, OSUN, JP</h4>
@@ -196,7 +197,7 @@ function SongList() {
                 </div>
             }
 
-            {showLoading && <ExportLoading setShowLoading={setShowLoading} />}
+            {showLoading && <ExportLoading setShowLoading={setShowLoading}/>}
             {showExporting && <ExportSongList exportList={exportList} count={count} />}
         </>
     )
