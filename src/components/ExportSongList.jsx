@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import DiscEnd from "./DiscEnd";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function ExportSongList({ exportList, count }) {
     const navigate = useNavigate();
+    const location = useLocation(); // 使用 useLocation 來獲取當前路徑
     const [currentIndex, setCurrentIndex] = useState(null);
     const [circleIn, setCircleIn] = useState(false);
 
@@ -31,29 +32,30 @@ function ExportSongList({ exportList, count }) {
     };
 
     const handlePlayAgain = () => {
-        navigate('/songlist');
+        navigate('/songlist')
+    }
+
+    const handleLogoClick = () => {
+        if (location.pathname === "/") {
+            navigate(0); // 如果在 Home 頁面，重新整理
+        } else {
+            navigate("/"); // 如果不在 Home 頁面，跳轉到 Home
+        }
     }
 
     return (
         <div className="exportsong-page">
-            <img className='logo' src="./images/logo.svg" alt="logo" onClick={()=>{
-                window.location="/" }}/>
-            {/* <img className='logo' src="./images/logo.svg" alt="logo"/> */}
+            <img className='logo' src="./images/logo.svg" alt="logo" onClick={handleLogoClick} />
             <p className='count-area'>你的歌單有<span>{count}</span>首歌</p>
 
             <button className="arrow prev-btn" onClick={handleLeftClick}><img src="./images/btn-prev.svg" alt="" /></button>
             <button className="arrow next-btn" onClick={handleRightClick}><img src="./images/btn-next.svg" alt="" /></button>
 
-            <div className="disc-list" style={{transform: `translateX(-${currentIndex * 170 }px)`}}>
-            {/* <div className="disc-list"> */}
-                {
-                    exportList.map((song, index) => (
-                        <DiscEnd key={song.key} song={song} index={index} currentIndex={currentIndex} />
-                    ))
-                }
+            <div className="disc-list">
+                <DiscEnd exportList={exportList} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
             </div>
 
-            <button className={`btn-game ${circleIn ? 'btn-in' : ''}`} onClick={()=>{window.location="/songlist"}}>
+            <button className={`btn-game ${circleIn ? 'btn-in' : ''}`} onClick={handlePlayAgain}>
                 <p>再玩一次</p>
                 <img src="./images/next.svg" alt="" />
             </button>

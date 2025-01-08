@@ -150,7 +150,7 @@ a {
     transform: rotate(360deg);
   }
 }
-.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .disc-list, .exportsong-page .disc-list .whole-disc, .exportsong-page .disc-list .whole-disc .song-info-simple {
+.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .disc-list, .exportsong-page .disc-list .disc-list-small {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,6 +178,7 @@ body {
   top: 16px;
   z-index: 1000;
   transform: translateX(-200%);
+  cursor: pointer;
 }
 
 .logo-in {
@@ -417,13 +418,11 @@ body {
 /* 左邊唱片 */
 .left-disc {
   position: absolute;
-  top: 100%;
+  bottom: -5%;
   left: 1%;
 }
 .left-disc .rotate {
   position: absolute;
-  top: 90%;
-  left: 1%;
   transform: translate(-50%, -50%);
 }
 .left-disc .disc-big {
@@ -507,6 +506,7 @@ body {
 }
 .gamestart-page .logo-run {
   position: relative;
+  transform: translateX(-5%);
 }
 .gamestart-page .logo-run img {
   position: absolute;
@@ -611,17 +611,6 @@ body {
   left: 240%;
   transition: 2s ease-in-out;
 }
-.gamestart-page .left-disc {
-  position: absolute;
-  top: 90%;
-  left: 1%;
-}
-.gamestart-page .left-disc .rotate {
-  position: absolute;
-  top: 90%;
-  left: 1%;
-  transform: translate(-50%, -50%);
-}
 .gamestart-page .left-disc .disc-big {
   width: 900px;
   animation: rotate 15s linear infinite;
@@ -693,7 +682,7 @@ body {
   width: 100%;
   height: 100vh;
   display: block;
-  background: linear-gradient(to bottom, rgba(169, 234, 119, 0.8) 20%, rgba(169, 234, 119, 0) 50%, rgba(169, 234, 119, 0.8) 80%);
+  background: linear-gradient(to bottom, rgba(169, 234, 119, 0.9) 0%, rgba(169, 234, 119, 0) 40%, rgba(169, 234, 119, 0) 70%, rgba(169, 234, 119, 0.9) 0%);
   opacity: 0;
   z-index: 888;
 }
@@ -873,15 +862,14 @@ body {
 
 /* 匯出歌單畫面 */
 .exportsong-page .btn-game {
-  bottom: -100%;
+  bottom: -60%;
 }
 .exportsong-page .btn-in {
   bottom: 60px;
-  transition: 2s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 .exportsong-page .logo {
   transform: translateX(0);
-  cursor: pointer;
 }
 .exportsong-page .count-area {
   bottom: 90%;
@@ -909,17 +897,21 @@ body {
 .exportsong-page .next-btn {
   right: 30px;
 }
+.exportsong-page .next-btn img {
+  transform: translateX(2px);
+}
 .exportsong-page .disc-list {
   position: absolute;
+  flex-direction: column;
   top: 25vh;
   left: 50%;
+  margin: auto;
   transition: 0.5s ease;
+  transform: translateX(-50%);
 }
 .exportsong-page .disc-list .whole-disc {
-  flex: 0 0 10%;
-  flex-direction: column;
-  margin: 0 12px;
-  opacity: 0.7;
+  display: flex;
+  align-items: center;
   transform: scale(1);
   transition: 0.3s ease;
 }
@@ -927,7 +919,8 @@ body {
   position: relative;
   width: 170px;
   height: 170px;
-  margin: 24px 0;
+  opacity: 0.5;
+  margin: 24px;
 }
 .exportsong-page .disc-list .whole-disc .disc .center-dot {
   animation: none;
@@ -936,21 +929,42 @@ body {
   border: 3px solid #A9EA77;
 }
 .exportsong-page .disc-list .whole-disc .song-info-simple {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
-  text-align: center;
+  width: 300px;
 }
 .exportsong-page .disc-list .whole-disc .song-info-simple p {
-  font-size: 12px;
+  font-size: 24px;
   margin-bottom: 8px;
 }
 .exportsong-page .disc-list .whole-disc .song-info-simple h3 {
-  font-size: 16px;
+  font-size: 32px;
   font-weight: 700;
 }
-.exportsong-page .disc-list .active {
+.exportsong-page .disc-list .whole-disc .active {
   opacity: 1;
-  transform: scale(1.5);
-  margin: 0 60px;
+  transform: scale(2);
+  margin: 0 120px;
+}
+.exportsong-page .disc-list .disc-current {
+  margin-bottom: 150px;
+}
+.exportsong-page .disc-list .disc-list-small .whole-disc {
+  margin: 0 8px;
+  cursor: pointer;
+  opacity: 0.3;
+}
+.exportsong-page .disc-list .disc-list-small .whole-disc .disc {
+  width: 80px;
+  height: 80px;
+  opacity: 1;
+  margin: 12px 0;
+}
+.exportsong-page .disc-list .disc-list-small .active {
+  opacity: 1;
+  transform: scale(1);
 }
 .exportsong-page .bg-circle .circle1 {
   left: -800px;

@@ -25,7 +25,7 @@ body {
     top: $interval_l;
     z-index: 1000;
     transform: translateX(-200%);
-    // cursor: pointer;
+    cursor: pointer;
 }
 
 .logo-in {
@@ -307,13 +307,11 @@ body {
 /* 左邊唱片 */
 .left-disc {
     position: absolute;
-    top: 100%;
+    bottom: -5%;
     left: 1%;
 
     .rotate {
         position: absolute;
-        top: 90%;
-        left: 1%;
         transform: translate(-50%, -50%);
     }
 
@@ -410,6 +408,7 @@ body {
 
     .logo-run {
         position: relative;
+        transform: translateX(-5%);
 
         img {
             position: absolute;
@@ -538,16 +537,16 @@ body {
     }
 
     .left-disc {
-        position: absolute;
-        top: 90%;
-        left: 1%;
+        // position: absolute;
+        // bottom: 90%;
+        // left: 1%;
 
-        .rotate {
-            position: absolute;
-            top: 90%;
-            left: 1%;
-            transform: translate(-50%, -50%);
-        }
+        // .rotate {
+        //     position: absolute;
+        //     top: 90%;
+        //     left: 1%;
+        //     transform: translate(-50%, -50%);
+        // }
 
         .disc-big {
             width: 900px;
@@ -634,7 +633,7 @@ body {
     width: 100%;
     height: 100vh;
     display: block;
-    background: linear-gradient(to bottom, rgba($primary_color_green_default, 0.8) 20%, rgba($primary_color_green_default, 0) 50%, rgba($primary_color_green_default, 0.8) 80%);
+    background: linear-gradient(to bottom, rgba($primary_color_green_default, 0.9) 0%, rgba($primary_color_green_default, 0) 40%, rgba($primary_color_green_default, 0) 70%, rgba($primary_color_green_default, 0.9) 0%);
     opacity: 0;
     z-index: 888;
 }
@@ -851,17 +850,16 @@ body {
 .exportsong-page {
 
     .btn-game {
-        bottom: -100%;
+        bottom: -60%;
     }
 
     .btn-in {
         bottom: 60px;
-        transition: 2s ease-in-out;
+        transition: 0.5s ease-in-out;
     }
 
     .logo {
         transform: translateX(0);
-        cursor: pointer;
     }
 
     .count-area {
@@ -897,22 +895,24 @@ body {
 
     .next-btn {
         right: 30px;
+        img {
+            transform: translateX(2px);
+        }
     }
 
     .disc-list {
         position: absolute;
         @extend %box-center;
+        flex-direction: column;
         top: 25vh;
         left: 50%;
+        margin: auto;
         transition: 0.5s ease;
-        // transform: translateX(-50%);
+        transform: translateX(-50%);
 
         .whole-disc {
-            flex: 0 0 10%;
-            @extend %box-center;
-            flex-direction: column;
-            margin: 0 $interval_m;
-            opacity: 0.7;
+            display: flex;
+            align-items: center;
             transform: scale(1);
             transition: 0.3s ease;
 
@@ -920,7 +920,8 @@ body {
                 position: relative;
                 width: 170px;
                 height: 170px;
-                margin: $interval_xl 0;
+                opacity: 0.5;
+                margin: $interval_xl;
 
                 .center-dot {
                     animation: none;
@@ -932,26 +933,53 @@ body {
             }
 
             .song-info-simple {
-                @extend %box-center;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
                 flex-direction: column;
-                text-align: center;
+                width: 300px;
 
                 p {
-                    font-size: $fontsize_sm;
+                    font-size: $fontsize_xxl;
                     margin-bottom: $interval_s;
                 }
 
                 h3 {
-                    font-size: $fontsize_lg;
+                    font-size: 32px;
                     font-weight: $font_bold;
                 }
             }
+
+            .active {
+                opacity: 1;
+                transform: scale(2);
+                margin: 0 120px;
+            }
         }
 
-        .active {
-            opacity: 1;
-            transform: scale(1.5);
-            margin: 0 60px;
+        .disc-current {
+            margin-bottom: 150px;
+        }
+
+        .disc-list-small {
+            @extend %box-center;
+            .whole-disc {
+                margin: 0 $interval_s;
+                cursor: pointer;
+                opacity: 0.3;
+
+                .disc {
+                    width: 80px;
+                    height: 80px;
+                    opacity: 1;
+                    margin: $interval_m 0;
+                }
+            }
+
+            .active {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     }
 

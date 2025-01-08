@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 
 function ExportLoading({ setShowLoading }) {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [outDisc, setOutDisc] = useState(false);
 
     useEffect(() => {
@@ -10,10 +12,18 @@ function ExportLoading({ setShowLoading }) {
         }, 500)
     }, [setShowLoading])
 
+    const handleLogoClick = () => {
+        if (location.pathname === "/") {
+            navigate(0); // 如果在 Home 頁面，重新整理
+        } else {
+            navigate("/"); // 如果不在 Home 頁面，跳轉到 Home
+        }
+    }
+
     return (
         <>
             <div className="loading-page">
-                <img className='logo' src="./images/logo.svg" alt="logo" />
+                <img className='logo' src="./images/logo.svg" alt="logo" onClick={handleLogoClick}/>
                 <div className='loading-words'>
                     <div className="dialog-box">
                         <p>遊戲結束！</p>

@@ -5,9 +5,12 @@ import axios from 'axios';
 import Disc from "../components/Disc";
 import ExportLoading from "../components/ExportLoading";
 import ExportSongList from "../components/ExportSongList";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function SongList() {
+    const navigate = useNavigate();
+    const location = useLocation(); // 使用 useLocation 來獲取當前路徑
     const [showSongList, setShowSongList] = useState(true); // 控制 SongList 頁面顯示
     const [showLoading, setShowLoading] = useState(false); // 控制 ExportLoading 頁面顯示
     const [showExporting, setShowExporting] = useState(false); // 控制 ExportSongList 頁面顯示
@@ -111,8 +114,6 @@ function SongList() {
         }, 500); // 延遲 0.5 秒
     };
 
-    console.log('骰子總格：' + diceTotal);
-
     /* 唱片跟著圓形路徑轉 */
     const [coordinates, setCoordinates] = useState([]); // 記錄每個 disc 的座標
     const totalDiscs = 30; // 圓周上的 disc 數量
@@ -139,10 +140,18 @@ function SongList() {
         }
     }, [songList]);
 
+    const handleLogoClick = () => {
+        if (location.pathname === "/") {
+            navigate(0); // 如果在 Home 頁面，重新整理
+        } else {
+            navigate("/"); // 如果不在 Home 頁面，跳轉到 Home
+        }
+    }
+
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
-            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo"/>
+            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo" onClick={handleLogoClick}/>
             {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
@@ -197,8 +206,10 @@ function SongList() {
                 </div>
             }
 
-            {showLoading && <ExportLoading setShowLoading={setShowLoading}/>}
+            {showLoading && <ExportLoading setShowLoading={setShowLoading} />}
             {showExporting && <ExportSongList exportList={exportList} count={count} />}
+
+            <Footer />
         </>
     )
 }
