@@ -28,7 +28,7 @@ function Instructions({handleDiceRollEnd, setExitDisc}) {
                             <p>1. 點一下骰子，隨機跑 1 到 6 格！</p>
                             <p>2. 每停一格，放大顯示該格的歌曲介紹。</p>
                             <p>3. 點數會累加，例如：第一次骰到 4，第二次骰到 5，就到第 9 格。</p>
-                            <p className="important">4. 累計<span>超過第 30 格</span>，遊戲結束！</p>
+                            <p className="important">4. <span>超過歌單第 30 首歌</span>，遊戲結束！</p>
                             <p className="important">5. 結束後，根據走過的格子<span>生成你的專屬歌單！</span></p>
                         </div>
                         <h2 className="title">--- 點擊骰子開始遊戲，探索你的音樂旅程吧！ ---</h2>

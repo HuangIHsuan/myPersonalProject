@@ -24,7 +24,6 @@ function DiceRollingBig({ handleDiceRollEnd }) {
     }, []);
 
     const roll = () => {
-        // console.log('Rolling started. isRolling:', isRolling, 'hasRolled:', hasRolled);
         if (isRolling) return; // 防止多次點擊
         setIsRolling(true);
 
@@ -48,7 +47,7 @@ function DiceRollingBig({ handleDiceRollEnd }) {
             {showOverlay && <div className="overlay"></div>}
             <div className='dice-section'>
                 <div className="dialog-box">
-                    <p>點一下來擲骰子吧！</p>
+                    <p>點一下繼續遊戲！</p>
                     <img src="./images/triangle.svg" alt="triangle" />
                 </div>
                 <div className="dice-container">

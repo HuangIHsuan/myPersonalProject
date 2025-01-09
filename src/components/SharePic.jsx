@@ -71,9 +71,15 @@ function SharePic({ exportList, setShowShare }) {
                         }
                     </div>
                 </div>
-                <button className="save-btn" onClick={handleDownload}>
-                    下載圖片
-                </button>
+
+                <div className="share-btns">
+                    <button className="save-btn" onClick={handleDownload}>
+                        下載圖片
+                    </button>
+                    <button className="save-btn">分享到Facebook</button>
+                    <button className="save-btn">分享到Line</button>
+                </div>
+
 
                 {/* 提示框 */}
                 {showPrompt && (

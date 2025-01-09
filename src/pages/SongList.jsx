@@ -27,6 +27,7 @@ function SongList() {
     const [exportList, setExportList] = useState([]);
     const [showGameOverPopup, setShowGameOverPopup] = useState(false);
     const [popupIn, setPopupIn] = useState(false);
+    const [remindIn, setRemindIn] = useState(false);
 
     useEffect(() => {
         // 延遲執行 setSongIn
@@ -54,11 +55,15 @@ function SongList() {
         setDiceTotal((prevTotal) => {
             const newTotal = prevTotal + result;
             // 如果總和超過 30，停止更新 count、旋轉和 activeDiscIndex
+            if (newTotal >= 20) {
+                setRemindIn(true);
+            }
+
             if (newTotal > 30) {
                 setShowGameOverPopup(true); // 顯示彈跳視窗
                 setTimeout(() => {
                     setPopupIn(true);
-                },10)
+                }, 10)
                 return prevTotal; // 停止更新 total
             }
 
@@ -133,6 +138,7 @@ function SongList() {
     const handlePopupClose = () => {
         setShowGameOverPopup(false); // 關閉彈跳視窗
         setSongIn(false);
+        setRemindIn(false);
         introListRef.current.style.transform = "translateX(-240%)";
         introListRef.current.style.transition = "2s ease";
 
@@ -162,6 +168,7 @@ function SongList() {
             {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
+                    <p className={`remind ${remindIn ? 'remind-in' : ''}`}>\ 歌單已經快要跑完啦！/</p>
                     <div className="bg-circle">
                         <img className={`rotate circle1${songIn ? ' slidein-circle' : ''}`} src="./images/circle-line-1.svg" alt="circle" />
                     </div>

@@ -34,7 +34,12 @@ function ExportSongList({ exportList, count }) {
     };
 
     const handlePlayAgain = () => {
-        navigate('/songlist')
+        if (location.pathname === "/songlist") {
+            navigate(0); // 如果在 Home 頁面，重新整理
+        } else {
+            navigate('/songlist');
+        }
+        
     }
 
     const handleLogoClick = () => {

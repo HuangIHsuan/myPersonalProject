@@ -655,8 +655,27 @@ body {
     }
 }
 
+.remind {
+    position: absolute;
+    bottom: 84%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-size: $fontsize_md;
+    font-weight: $font_bold;
+    color: #ea8c28;
+    transition: 1s ease-in-out;
+    z-index: 999;
+    animation: remind 2s ease infinite;
+}
+
 .count-in {
     bottom: 90%;
+}
+
+.remind-in {
+    bottom: 86%;
+    opacity: 1;
 }
 
 /* 背景 */
@@ -1222,17 +1241,29 @@ body {
         }
     }
 
-    .save-btn {
-        border: solid 2px $neutral_black;
-        background-color: $primary_color_green_light;
-        border-radius: 99px;
-        font-size: $fontsize_md;
-        font-weight: $font_bold;
-        padding: 8px 24px;
-        margin-top: $interval_m;
+    .share-btns {
         z-index: 1200;
-        cursor: pointer;
+
+        .save-btn {
+            border: solid 2px $neutral_black;
+            background-color: $primary_color_green_dark;
+            border-radius: 99px;
+            font-size: $fontsize_md;
+            font-weight: $font_bold;
+            padding: 8px 24px;
+            margin: 12px 4px 12px 4px;
+            cursor: pointer;
+            transition: 0.35s ease;
+    
+            &:hover {
+                background-color: $neutral_black;
+                border: 2px solid $neutral_white;
+                color: $neutral_white;
+            }
+        }
     }
+
+    
 
     .overlay-noshow {
         position: fixed;
@@ -1246,7 +1277,7 @@ body {
         position: absolute;
         background-color: $primary_color_green_dark;
         border: 2px solid $neutral_black;
-        border-radius: $interval_s;
+        border-radius: 99px;
         font-size: $fontsize_md;
         color: $neutral_black;
         font-weight: $font_bold;
@@ -1257,6 +1288,7 @@ body {
 
         &:hover {
             background-color: $neutral_black;
+            border: 2px solid $neutral_white;
             color: $neutral_white;
         }
     }

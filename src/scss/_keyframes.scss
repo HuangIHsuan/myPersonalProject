@@ -123,3 +123,25 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes remind {
+    0% {
+        transform: translateX(-50%) translateY(3px);
+    }
+
+    25% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(3px);
+    }
+
+    75% {
+        transform: translateX(-50%) translateY(-3px);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(3px);
+    }
+}

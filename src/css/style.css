@@ -150,6 +150,23 @@ a {
     transform: rotate(360deg);
   }
 }
+@keyframes remind {
+  0% {
+    transform: translateX(-50%) translateY(3px);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(3px);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(3px);
+  }
+}
 .instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .gameover-popup .popup-content, .gameover-popup .popup-content p, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .btns .btn-game-f, .exportsong-page .disc-list, .exportsong-page .disc-list .disc-list-small, .share-page {
   display: flex;
   justify-content: center;
@@ -709,8 +726,27 @@ body {
   font-weight: 700;
 }
 
+.remind {
+  position: absolute;
+  bottom: 84%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ea8c28;
+  transition: 1s ease-in-out;
+  z-index: 999;
+  animation: remind 2s ease infinite;
+}
+
 .count-in {
   bottom: 90%;
+}
+
+.remind-in {
+  bottom: 86%;
+  opacity: 1;
 }
 
 /* 背景 */
@@ -1171,16 +1207,24 @@ body {
   font-size: 14px;
   font-weight: 700;
 }
-.share-page .save-btn {
+.share-page .share-btns {
+  z-index: 1200;
+}
+.share-page .share-btns .save-btn {
   border: solid 2px #000;
-  background-color: #D0FBAF;
+  background-color: #65D212;
   border-radius: 99px;
   font-size: 14px;
   font-weight: 700;
   padding: 8px 24px;
-  margin-top: 12px;
-  z-index: 1200;
+  margin: 12px 4px 12px 4px;
   cursor: pointer;
+  transition: 0.35s ease;
+}
+.share-page .share-btns .save-btn:hover {
+  background-color: #000;
+  border: 2px solid #fff;
+  color: #fff;
 }
 .share-page .overlay-noshow {
   position: fixed;
@@ -1193,7 +1237,7 @@ body {
   position: absolute;
   background-color: #65D212;
   border: 2px solid #000;
-  border-radius: 8px;
+  border-radius: 99px;
   font-size: 14px;
   color: #000;
   font-weight: 700;
@@ -1204,6 +1248,7 @@ body {
 }
 .share-page .prompt:hover {
   background-color: #000;
+  border: 2px solid #fff;
   color: #fff;
 }
 
