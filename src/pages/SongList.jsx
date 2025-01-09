@@ -25,6 +25,8 @@ function SongList() {
     const introListRef = useRef(0);
     const [count, setCount] = useState(0); // 計算歌單歌曲數目
     const [exportList, setExportList] = useState([]);
+    const [showGameOverPopup, setShowGameOverPopup] = useState(false);
+    const [popupIn, setPopupIn] = useState(false);
 
     useEffect(() => {
         // 延遲執行 setSongIn
@@ -53,23 +55,11 @@ function SongList() {
             const newTotal = prevTotal + result;
             // 如果總和超過 30，停止更新 count、旋轉和 activeDiscIndex
             if (newTotal > 30) {
-                alert("已經超過30格囉！");
-                setSongIn(false);
-                introListRef.current.style.transform = 'translateX(-240%)';
-                introListRef.current.style.transition = '2s ease';
-
-                // 切換到其他頁面的邏輯
+                setShowGameOverPopup(true); // 顯示彈跳視窗
                 setTimeout(() => {
-                    setShowSongList(false);
-                    setShowLoading(true);
-                }, 2000);
-
-                setTimeout(() => {
-                    setShowLoading(false);
-                    setShowExporting(true);
-                }, 4000);
-
-                return prevTotal; // 返回舊的 total，不更新
+                    setPopupIn(true);
+                },10)
+                return prevTotal; // 停止更新 total
             }
 
             const nextDiscIndex = newTotal % 31; // 確保索引值不超過 31
@@ -140,6 +130,23 @@ function SongList() {
         }
     }, [songList]);
 
+    const handlePopupClose = () => {
+        setShowGameOverPopup(false); // 關閉彈跳視窗
+        setSongIn(false);
+        introListRef.current.style.transform = "translateX(-240%)";
+        introListRef.current.style.transition = "2s ease";
+
+        setTimeout(() => {
+            setShowSongList(false);
+            setShowLoading(true);
+        }, 2000);
+
+        setTimeout(() => {
+            setShowLoading(false);
+            setShowExporting(true);
+        }, 4000);
+    };
+
     const handleLogoClick = () => {
         if (location.pathname === "/") {
             navigate(0); // 如果在 Home 頁面，重新整理
@@ -151,7 +158,7 @@ function SongList() {
     return (
         <>
             {showOverlay && <div className="overlay"></div>}
-            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo" onClick={handleLogoClick}/>
+            <img className={`logo${songIn ? ' logo-in' : ''}`} src="./images/logo.svg" alt="logo" onClick={handleLogoClick} />
             {showSongList &&
                 <div className="songlist-page">
                     <p className={`count-area${songIn ? ' count-in' : ''}`}>你的歌單增加了<span>{count}</span>首歌</p>
@@ -203,6 +210,17 @@ function SongList() {
 
                     {/* 傳遞 handleDiceRoll 作為回調函數 */}
                     <DiceRollingBig handleDiceRollEnd={handleDiceRoll} />
+                </div>
+            }
+
+            {showGameOverPopup &&
+                <div className="gameover-popup">
+                    <div className="overlay" onClick={handlePopupClose}></div>
+                    <div className={`popup-content ${popupIn ? 'pop-in' : ''}`}>
+                        <p>提示</p>
+                        <h3>已經超過 30 格囉！</h3>
+                        <button onClick={handlePopupClose}>確定</button>
+                    </div>
                 </div>
             }
 

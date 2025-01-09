@@ -65,6 +65,11 @@ body {
             font-size: $fontsize_lg;
             line-height: 1.8;
 
+            .important {
+                font-size: $fontsize_xl;
+                font-weight: $font_bold;
+            }
+
             span {
                 font-weight: $font_bold;
                 color: $point_color;
@@ -537,17 +542,6 @@ body {
     }
 
     .left-disc {
-        // position: absolute;
-        // bottom: 90%;
-        // left: 1%;
-
-        // .rotate {
-        //     position: absolute;
-        //     top: 90%;
-        //     left: 1%;
-        //     transform: translate(-50%, -50%);
-        // }
-
         .disc-big {
             width: 900px;
             animation: rotate 15s linear infinite;
@@ -575,6 +569,72 @@ body {
 }
 
 /* 歌曲清單頁面 */
+.gameover-popup {
+    .popup-content {
+        position: fixed;
+        left: 50%;
+        top: 53%;
+        transform: translate(-50%, -50%);
+        @extend %box-center;
+        flex-direction: column;
+        opacity: 0;
+        background-color: $primary_color_green_dark;
+        border: 5px solid $neutral_white;
+        border-radius: 16px;
+        padding: 16px 32px;
+        z-index: 1200;
+
+        p {
+            font-size: $fontsize_md;
+            margin-bottom: $interval_s;
+            @extend %box-center;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                transform: translateX(-5px);
+                width: 7px;
+                height: 7px;
+                background-color: $neutral_black;
+                border-radius: 50%;
+            }
+
+            &::after {
+                transform: translateX(5px);
+            }
+        }
+
+        h3 {
+            margin-bottom: $interval_m;
+            font-size: $fontsize_xl;
+            font-weight: $font_bold;
+        }
+
+        button {
+            border: 2px solid $neutral_white;
+            background-color: $primary_color_green_default;
+            font-size: $fontsize_md;
+            border-radius: 99px;
+            padding: 4px 16px;
+            color: $neutral_black;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover {
+                background-color: $neutral_black;
+                color: $neutral_white;
+            }
+        }
+    }
+
+    .pop-in {
+        opacity: 1;
+        top: 50%;
+        transition: 0.5s ease-in-out;
+    }
+}
+
 .count-area {
     position: absolute;
     bottom: 110%;
@@ -849,13 +909,48 @@ body {
 /* 匯出歌單畫面 */
 .exportsong-page {
 
-    .btn-game {
+    .btns {
+        position: absolute;
         bottom: -60%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+
+        .btn-game-f {
+            background-color: $primary_color_green_default;
+            z-index: 666;
+            @extend %box-center;
+            padding: 10px 28px;
+            border: solid 2px $neutral_black;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: .4s;
+            margin-right: $interval_l;
+
+            &:hover {
+                box-shadow: 0 0 7px 5px rgba($primary_color_green_dark, 0.5);
+                transform: translateY(-1px);
+                background-color: $primary_color_green_light;
+            }
+
+            p {
+                font-size: 24px;
+                font-weight: $font_bold;
+                color: $neutral_black;
+                margin-right: $interval_l;
+            }
+
+            img {
+                width: 32px;
+                height: 32px;
+                animation: btnMove 1.5s linear infinite;
+            }
+        }
     }
 
     .btn-in {
         bottom: 60px;
-        transition: 0.5s ease-in-out;
+        transition: 1s ease-in-out;
     }
 
     .logo {
@@ -895,6 +990,7 @@ body {
 
     .next-btn {
         right: 30px;
+
         img {
             transform: translateX(2px);
         }
@@ -963,6 +1059,7 @@ body {
 
         .disc-list-small {
             @extend %box-center;
+
             .whole-disc {
                 margin: 0 $interval_s;
                 cursor: pointer;
@@ -1020,6 +1117,147 @@ body {
         .right-in {
             left: 1400px;
             transition: 2s ease;
+        }
+    }
+}
+
+/* 分享卡片 */
+#share-body {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.share-page {
+    height: 100vh;
+    overflow-y: auto;
+    @extend %box-center;
+    flex-direction: column;
+
+    .share-card {
+        width: 393px;
+        border-radius: $interval_s;
+        padding: $interval_xl;
+        background-color: $primary_color_green_light;
+        z-index: 1200;
+
+        .content-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            border: solid 3px $neutral_black;
+            border-radius: 8px 8px 0 0;
+
+            .logo-title {
+                position: absolute;
+                top: -10px;
+                width: 200px;
+                background-color: $primary_color_green_light;
+                padding: 0 $interval_s;
+            }
+
+            .personal-title {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin: 24px 0 16px 0;
+
+                img {
+                    width: 32px;
+                    height: 32px;
+                }
+
+                h2 {
+                    font-size: $fontsize_xxl;
+                    font-weight: $font_bold;
+                    margin: 0 40px;
+                }
+            }
+        }
+
+        .share-list {
+            width: 100%;
+            border: solid 3px $neutral_black;
+            border-radius: 0 0 8px 8px;
+            background-color: $neutral_white;
+            margin-top: -3px;
+            padding: 8px 12px;
+
+            .info-card {
+                display: flex;
+                align-items: center;
+                margin-bottom: $interval_xs;
+
+                .number {
+                    width: 15px;
+                    font-size: $fontsize_md;
+                    font-weight: $font_bold;
+                }
+
+                .disc {
+                    position: relative;
+                    margin: 0 $interval_m;
+
+                    .center-dot {
+                        animation: none;
+                    }
+                }
+
+                .song-info-simple {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+
+                    p {
+                        font-size: 10px;
+                        margin-bottom: $interval_xs;
+                    }
+
+                    h3 {
+                        font-size: $fontsize_md;
+                        font-weight: $font_bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .save-btn {
+        border: solid 2px $neutral_black;
+        background-color: $primary_color_green_light;
+        border-radius: 99px;
+        font-size: $fontsize_md;
+        font-weight: $font_bold;
+        padding: 8px 24px;
+        margin-top: $interval_m;
+        z-index: 1200;
+        cursor: pointer;
+    }
+
+    .overlay-noshow {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: transparent;
+        z-index: 1200;
+    }
+
+    .prompt {
+        position: absolute;
+        background-color: $primary_color_green_dark;
+        border: 2px solid $neutral_black;
+        border-radius: $interval_s;
+        font-size: $fontsize_md;
+        color: $neutral_black;
+        font-weight: $font_bold;
+        padding: 8px 24px;
+        z-index: 1201;
+        cursor: pointer;
+        transition: 0.35s ease;
+
+        &:hover {
+            background-color: $neutral_black;
+            color: $neutral_white;
         }
     }
 }

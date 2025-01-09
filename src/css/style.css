@@ -150,7 +150,7 @@ a {
     transform: rotate(360deg);
   }
 }
-.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .disc-list, .exportsong-page .disc-list .disc-list-small {
+.instruction, .instruction .board, .popup-dice-section, .popup-dice-section .popup-dialog-box, .popup-dice-section .popup-dice-container, .big-dice .dice-section, .big-dice .dice-section .dialog-box, .big-dice .dice-section .dice-container, .btn-game, .disc, .gameover-popup .popup-content, .gameover-popup .popup-content p, .count-area, .loading-page .loading-words, .loading-page .loading-words .dialog-box, .loading-page .loading-words .words, .exportsong-page .btns .btn-game-f, .exportsong-page .disc-list, .exportsong-page .disc-list .disc-list-small, .share-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,6 +214,10 @@ body {
 .instruction .board .content {
   font-size: 16px;
   line-height: 1.8;
+}
+.instruction .board .content .important {
+  font-size: 20px;
+  font-weight: 700;
 }
 .instruction .board .content span {
   font-weight: 700;
@@ -633,6 +637,60 @@ body {
 }
 
 /* 歌曲清單頁面 */
+.gameover-popup .popup-content {
+  position: fixed;
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  opacity: 0;
+  background-color: #65D212;
+  border: 5px solid #fff;
+  border-radius: 16px;
+  padding: 16px 32px;
+  z-index: 1200;
+}
+.gameover-popup .popup-content p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.gameover-popup .popup-content p::before, .gameover-popup .popup-content p::after {
+  content: "";
+  display: block;
+  transform: translateX(-5px);
+  width: 7px;
+  height: 7px;
+  background-color: #000;
+  border-radius: 50%;
+}
+.gameover-popup .popup-content p::after {
+  transform: translateX(5px);
+}
+.gameover-popup .popup-content h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.gameover-popup .popup-content button {
+  border: 2px solid #fff;
+  background-color: #A9EA77;
+  font-size: 14px;
+  border-radius: 99px;
+  padding: 4px 16px;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.gameover-popup .popup-content button:hover {
+  background-color: #000;
+  color: #fff;
+}
+.gameover-popup .pop-in {
+  opacity: 1;
+  top: 50%;
+  transition: 0.5s ease-in-out;
+}
+
 .count-area {
   position: absolute;
   bottom: 110%;
@@ -861,12 +919,42 @@ body {
 }
 
 /* 匯出歌單畫面 */
-.exportsong-page .btn-game {
+.exportsong-page .btns {
+  position: absolute;
   bottom: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.exportsong-page .btns .btn-game-f {
+  background-color: #A9EA77;
+  z-index: 666;
+  padding: 10px 28px;
+  border: solid 2px #000;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 0.4s;
+  margin-right: 16px;
+}
+.exportsong-page .btns .btn-game-f:hover {
+  box-shadow: 0 0 7px 5px rgba(101, 210, 18, 0.5);
+  transform: translateY(-1px);
+  background-color: #D0FBAF;
+}
+.exportsong-page .btns .btn-game-f p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-right: 16px;
+}
+.exportsong-page .btns .btn-game-f img {
+  width: 32px;
+  height: 32px;
+  animation: btnMove 1.5s linear infinite;
 }
 .exportsong-page .btn-in {
   bottom: 60px;
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 .exportsong-page .logo {
   transform: translateX(0);
@@ -995,6 +1083,128 @@ body {
 .exportsong-page .bg-circle .right-in {
   left: 1400px;
   transition: 2s ease;
+}
+
+/* 分享卡片 */
+#share-body {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.share-page {
+  height: 100vh;
+  overflow-y: auto;
+  flex-direction: column;
+}
+.share-page .share-card {
+  width: 393px;
+  border-radius: 8px;
+  padding: 24px;
+  background-color: #D0FBAF;
+  z-index: 1200;
+}
+.share-page .share-card .content-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: solid 3px #000;
+  border-radius: 8px 8px 0 0;
+}
+.share-page .share-card .content-section .logo-title {
+  position: absolute;
+  top: -10px;
+  width: 200px;
+  background-color: #D0FBAF;
+  padding: 0 8px;
+}
+.share-page .share-card .content-section .personal-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 16px 0;
+}
+.share-page .share-card .content-section .personal-title img {
+  width: 32px;
+  height: 32px;
+}
+.share-page .share-card .content-section .personal-title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 40px;
+}
+.share-page .share-card .share-list {
+  width: 100%;
+  border: solid 3px #000;
+  border-radius: 0 0 8px 8px;
+  background-color: #fff;
+  margin-top: -3px;
+  padding: 8px 12px;
+}
+.share-page .share-card .share-list .info-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.share-page .share-card .share-list .info-card .number {
+  width: 15px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.share-page .share-card .share-list .info-card .disc {
+  position: relative;
+  margin: 0 12px;
+}
+.share-page .share-card .share-list .info-card .disc .center-dot {
+  animation: none;
+}
+.share-page .share-card .share-list .info-card .song-info-simple {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.share-page .share-card .share-list .info-card .song-info-simple p {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+.share-page .share-card .share-list .info-card .song-info-simple h3 {
+  font-size: 14px;
+  font-weight: 700;
+}
+.share-page .save-btn {
+  border: solid 2px #000;
+  background-color: #D0FBAF;
+  border-radius: 99px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 24px;
+  margin-top: 12px;
+  z-index: 1200;
+  cursor: pointer;
+}
+.share-page .overlay-noshow {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: transparent;
+  z-index: 1200;
+}
+.share-page .prompt {
+  position: absolute;
+  background-color: #65D212;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #000;
+  font-weight: 700;
+  padding: 8px 24px;
+  z-index: 1201;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+.share-page .prompt:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 /* footer */

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Instructions from "./Instructions";
 import Footer from "./Footer";
+import SharePic from "./SharePic";
 
 function GameStart({ handleDiceRollEnd, exitDisc, setExitDisc }) {
     const [showPopup, setShowPopup] = useState(false);

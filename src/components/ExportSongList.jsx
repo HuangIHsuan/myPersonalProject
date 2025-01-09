@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import DiscEnd from "./DiscEnd";
 import Footer from "./Footer";
 import { useLocation, useNavigate } from "react-router-dom";
+import SharePic from "./SharePic";
 
 function ExportSongList({ exportList, count }) {
     const navigate = useNavigate();
     const location = useLocation(); // 使用 useLocation 來獲取當前路徑
     const [currentIndex, setCurrentIndex] = useState(null);
     const [circleIn, setCircleIn] = useState(false);
+    const [showShare, setShowShare] = useState(false);
 
     useEffect(() => {
         setCircleIn(true);
@@ -43,6 +45,10 @@ function ExportSongList({ exportList, count }) {
         }
     }
 
+    const handleClickSharePage = () => {
+        setShowShare(true);
+    }
+
     return (
         <div className="exportsong-page">
             <img className='logo' src="./images/logo.svg" alt="logo" onClick={handleLogoClick} />
@@ -55,10 +61,19 @@ function ExportSongList({ exportList, count }) {
                 <DiscEnd exportList={exportList} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex} />
             </div>
 
-            <button className={`btn-game ${circleIn ? 'btn-in' : ''}`} onClick={handlePlayAgain}>
-                <p>再玩一次</p>
-                <img src="./images/next.svg" alt="" />
-            </button>
+            <div className={`btns ${circleIn ? 'btn-in' : ''}`} >
+                <button className='btn-game-f' onClick={handlePlayAgain}>
+                    <p>再玩一次</p>
+                    <img src="./images/next.svg" alt="" />
+                </button>
+                <button onClick={handleClickSharePage} className='btn-game-f'>
+                    <p>分享給朋友</p>
+                    <img src="./images/next.svg" alt="" />
+                </button>
+            </div>
+
+            {showShare && <SharePic exportList={exportList} setShowShare={setShowShare} />}
+
             <div className="bg-circle">
                 <img className={`rotate circle1 ${circleIn ? 'left-in' : ''}`} src="./images/circle-line-1.svg" alt="circle" />
                 <div className={`right-disc ${circleIn ? 'right-in' : ''}`}>
